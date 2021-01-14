@@ -23,7 +23,7 @@ const NavMain = (props) => {
     <Flex align="center">
       <Box p="2">
         <Button
-          colorScheme="teal"
+          colorScheme="black"
           size="md"
           as={NavLink}
           exact
@@ -31,7 +31,7 @@ const NavMain = (props) => {
           variant="ghost"
           m="4px 0"
         >
-          Potentiam
+          POTENTIAM
         </Button>
       </Box>
       <Spacer />
@@ -82,7 +82,7 @@ const NavMain = (props) => {
               exact
               to="/signup"
               m="4px 0"
-              colorScheme="teal" variant="solid"
+              colorScheme="purple" variant="solid"
             >
               Signup
             </Button>
