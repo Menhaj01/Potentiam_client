@@ -56,6 +56,7 @@ class FormSignup extends Component {
         />
         <button>Submit</button>
       </form>
+      
     );
   }
 }
