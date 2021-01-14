@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { UserContext } from "../Auth/UserContext";
 import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/FormSign.css";
+import {
+  Input,
+  Stack,
+  Icon,
+  InputGroup,
+  FormControl,
+  FormLabel,
+  Button,
+  InputLeftElement,
+} from "@chakra-ui/react";
 
 class FormSignin extends Component {
   static contextType = UserContext;
@@ -39,13 +50,44 @@ class FormSignin extends Component {
     }
 
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
+      <div className="Form-Sign">
+        <div className="div-sign">
+          <h1>WELCOME TO POTENTIAM</h1>
+          <p>What will be your new interest ?</p>
+          <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <Stack spacing={3}>
+            <FormControl isRequired>
+              <FormLabel htmlFor="email">Email address</FormLabel>
+              <InputGroup>
+                <InputLeftElement children={<Icon name="info" />} />
+                <Input type="email" id="email" name="email" />
+              </InputGroup>
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel htmlFor="password">Create a password</FormLabel>
+              <InputGroup>
+                <InputLeftElement children={<Icon name="lock" />} />
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                />
+              </InputGroup>
+            </FormControl>
+            <Button
+              type="submit"
+              size="md"
+              height="48px"
+              width="200px"
+              colorScheme="red"
+            >
+              Let's go in
+            </Button>
+            </Stack>
+          </form>
+        </div>
+      </div>
     );
   }
 }

@@ -20,6 +20,7 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
+    pseudo: "",
   };
 
   handleChange = (event) => {
@@ -48,13 +49,30 @@ class FormSignup extends Component {
     }
 
     return (
-      <div className="Form-Signup">
+      <div className="Form-Sign">
         <div className="div-sign">
         <h1>WELCOME TO POTENTIAM</h1>
         <p>What will be your new interest ?</p>
 
         <form onSubmit={this.handleSubmit}>
           <Stack spacing={3}>
+          <FormControl isRequired>
+            <FormLabel htmlFor="pseudo">Pseudo</FormLabel>
+              <InputGroup>
+                <InputLeftElement children={<Icon name="info" />} />
+                <Input
+                  onChange={this.handleChange}
+                  value={this.state.pseudo}
+                  type="text"
+                  id="peusdo"
+                  name="pseudo"
+                  placeholder="Choose a pseudo"
+                  width="400px"
+                />
+              </InputGroup>
+            </FormControl>
+
+
             <FormControl isRequired>
             <FormLabel htmlFor="email">Email address</FormLabel>
               <InputGroup>
