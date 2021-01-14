@@ -1,0 +1,10 @@
+.Form-Signup {
+    justify-content: center;
+}
+
+.div-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
