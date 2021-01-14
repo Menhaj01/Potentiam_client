@@ -10,7 +10,7 @@ export class FormUser extends Component {
         Twitter: "feqfqefq",
 
     }
-    
+
 
 
     handleChange = (event) => {
@@ -47,8 +47,6 @@ export class FormUser extends Component {
                 links: [...this.state.links, socialLink]
             })
         }else{
-
-
             // const copy = [...this.state.links ];
             // copy.splice(linkIndex, 1, socialLink)
 
@@ -83,7 +81,7 @@ export class FormUser extends Component {
                 <input name="Twitter"></input>
                 <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt=""></img>
                 <select>
-                 
+                 Categories
                 </select>
                 <textarea name="description" id="" cols="30" rows="10"></textarea>
                 <button>Submit</button>
