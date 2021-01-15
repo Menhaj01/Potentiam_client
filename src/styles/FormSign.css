@@ -1,0 +1,20 @@
+.Form-Sign {
+    justify-content: center;
+    border: solid;
+    margin: 200px 500px;
+    padding: 100px;
+    border-radius: 50px;
+    box-shadow: 0px 5px 5px black;
+}
+
+.div-sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div-sign  h1{
+    font-size: 30px;
+}
+
