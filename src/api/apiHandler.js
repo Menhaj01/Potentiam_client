@@ -44,9 +44,16 @@ export default {
       .catch(errorHandler);
   },
 
-  getItems() {
+  getCategories() {
     return service
-      .get("/api/items")
+      .get("/api/category/all")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  updateProfile() {
+    return service
+      .patch("/api/user/me")
       .then((res) => res.data)
       .catch(errorHandler);
   },
