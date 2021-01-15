@@ -18,3 +18,9 @@ a {
 ul {
   list-style-type: none;
 }
+
+@media secreen and (min-width: 681px) and (max-width: 1279px){
+  h1 {
+    font-size: 20px;
+  }
+}
