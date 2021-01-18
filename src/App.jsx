@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Profile from "./pages/Profile";
+import MainProfile from "./pages/MainProfile";
 import Dashboard from "./pages/Dashboard";
 // import Sidebar from "./components/Sidebar_Dashboad";
 
@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         {/* <Route exact path="/test" component={Sidebar} /> */}
-        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/MainProfile" component={MainProfile} />
         <ProtectedRoute exact path="/dashboard" component={Dashboard} />
       </Switch>
     </div>

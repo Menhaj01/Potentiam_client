@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/profileCard.css";
+import "../styles/profile.css";
 import SocialFollow from "../components/SocialFollow";
 import { withUser } from "../components/Auth/withUser";
 
-const Profile = (props) => {
+const ProfileCard = (props) => {
   console.log(props);
 
   return (
@@ -39,4 +39,4 @@ const Profile = (props) => {
   );
 };
 
-export default withUser(Profile);
+export default withUser(ProfileCard);
