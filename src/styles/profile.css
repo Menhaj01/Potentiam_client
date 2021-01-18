@@ -14,7 +14,7 @@
   width: 100px;
 }
 .food-img {
-  margin-left: 50px;
+  margin-left: 20px;
 }
 .Card {
   width: 50vw;
@@ -29,8 +29,8 @@
 }
 .image-container img {
   background: white;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   padding: 5px;
   transform: translate(95px, 45px);

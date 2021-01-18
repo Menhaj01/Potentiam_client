@@ -12,7 +12,7 @@ export class MainProfile extends Component {
           <ProfileCard />
         </div>
         <div className="food-img">
-          <div>
+          <div className="food-img">
             <h1>Alicia cooking</h1>
             <div>
               <span>FOOD</span>
