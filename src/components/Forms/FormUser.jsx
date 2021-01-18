@@ -27,11 +27,12 @@ export class FormUser extends Component {
   state = {
     pseudo: "",
     description: "",
-    // image: "",
+    image: "",
     links: [],
     categories: [],
     name_category: "",
     id_category: "",
+    previousValue: null,
   };
 
   imageRef = React.createRef();
@@ -153,6 +154,7 @@ export class FormUser extends Component {
                   value={this.state.description}
                 />
               </FormField>
+              <input type="file" />
 
               {/* <FormField label="Age" name="age" pad>
                 <RangeInput name="age" min={15} max={75} />

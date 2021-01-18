@@ -44,6 +44,13 @@ export default {
       .catch(errorHandler);
   },
 
+  getUserInfo() {
+    return service
+      .get("/api/users/me")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getCategories() {
     return service
       .get("/api/category/all")
@@ -51,9 +58,9 @@ export default {
       .catch(errorHandler);
   },
 
-  getUsersByCategory(id_category) {
+  getUsersByCategory(id) {
     return service
-      .get("/api/user/all/bycategory", id_category)
+      .get("/api/user/all/bycategory", { params: { id_category: id } })
       .then((res) => res.data)
       .catch(errorHandler);
   },
