@@ -61,6 +61,7 @@ export default {
   getUsersByCategory(id) {
     return (
       service
+        // request query to send information on a get request axios
         .get(`/api/user/all/bycategory?id_category=${id}`)
         // .get("/api/user/all/bycategory", { params: { id_category: id } })
         .then((res) => res.data)

@@ -29,10 +29,10 @@ class CategoryPage extends React.Component {
           <button className="btn-filter">Filter by like ⇩</button>
           <button className="btn-filter">Recent Influencers ⇩</button>
         </div>
-        <div>
+        <div className="category-wrap">
           {this.state.usersInCategory.map((each) => (
-            <div key={each._id}>
-              <img src={each.image} alt="" />
+            <div className="category-user" key={each._id}>
+              <img className="category-user-img" src={each.image} alt="" />
               <p>{each.pseudo}</p>
             </div>
           ))}
