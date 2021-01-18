@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
-import { Box, Flex, Spacer, Button} from "@chakra-ui/react";
+import { Box, Flex, Spacer, Button } from "@chakra-ui/react";
 import "../styles/NavMain.css";
 
 const NavMain = (props) => {
@@ -43,15 +43,13 @@ const NavMain = (props) => {
               size="md"
               as={NavLink}
               exact
-              to="/profile"
+              to="/dashboard"
               variant="ghost"
               m="4px 0"
             >
-              Dashboard 
+              Dashboard
             </Button>
-            <Button>
-            {context.user && context.user.pseudo}
-            </Button>
+            <Button>{context.user && context.user.pseudo}</Button>
             <Button
               colorScheme="teal"
               size="md"
@@ -74,7 +72,7 @@ const NavMain = (props) => {
               exact
               to="/signin"
               m="4px 20px"
-              colorScheme="black" 
+              colorScheme="black"
               variant="outline"
             >
               Signin
@@ -85,7 +83,8 @@ const NavMain = (props) => {
               exact
               to="/signup"
               m="4px 0"
-              colorScheme="red" variant="solid"
+              colorScheme="red"
+              variant="solid"
             >
               Signup
             </Button>

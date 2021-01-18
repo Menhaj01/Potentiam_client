@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import {
   Box,
   Button,
@@ -29,6 +30,7 @@ export class FormUser extends Component {
     // image: "",
     links: [],
     categories: [],
+    name_category: "",
     id_category: "",
   };
 
@@ -53,9 +55,10 @@ export class FormUser extends Component {
 
   handleSelect = (event) => {
     const value = event.option;
-    // console.log(value._id);
+    console.log(value.name);
     this.setState({
       id_category: value._id,
+      name_category: value.name,
     });
   };
 
@@ -72,8 +75,9 @@ export class FormUser extends Component {
     console.log(dataToSend);
     apiHandler
       .updateProfile(dataToSend)
-      .then((data) => {
-        console.log("Profile updated with this data :" + data);
+      .then((dataToSend) => {
+        console.log("Profile updated with this data :" + dataToSend);
+        this.props.history.push("/");
       })
       .catch((err) => {
         console.log(err);
@@ -111,24 +115,18 @@ export class FormUser extends Component {
 
   render() {
     return (
-      <Grommet full theme={grommet}>
+      <Grommet id="userFormContainer" full theme={grommet}>
         <Box fill align="center" justify="center">
-          <Box width="medium">
+          <Box width="xlarge">
             <Form onSubmit={this.handleSubmit}>
               <FormField htmlFor="pseudo" label="Psuedo" name="pseudo">
                 <TextInput
                   id="pseudo"
                   name="pseudo"
                   onChange={this.handleChange}
+                  value={this.state.pseudo}
                 />
               </FormField>
-
-              {/* <FormField name="ampm">
-                <RadioButtonGroup
-                  name="ampm"
-                  options={["morning", "evening"]}
-                />
-              </FormField> */}
 
               <FormField htmlFor="category" label="Category" name="category">
                 <Select
@@ -139,6 +137,7 @@ export class FormUser extends Component {
                   // options={this.state.categories.map((item) => item.name)}
                   onChange={this.handleSelect}
                   // valueKey={(options) => options._id}
+                  // valueKey={this.state.name_category}
                 />
               </FormField>
 
@@ -151,6 +150,7 @@ export class FormUser extends Component {
                   id="description"
                   name="description"
                   onChange={this.handleChange}
+                  value={this.state.description}
                 />
               </FormField>
 
@@ -209,4 +209,4 @@ export class FormUser extends Component {
   }
 }
 
-export default FormUser;
+export default withRouter(FormUser);

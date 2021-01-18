@@ -51,9 +51,16 @@ export default {
       .catch(errorHandler);
   },
 
-  updateProfile() {
+  getUsersByCategory(id_category) {
     return service
-      .patch("/api/user/me")
+      .get("/api/user/all/bycategory", id_category)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  updateProfile(data) {
+    return service
+      .patch("/api/user/me", data)
       .then((res) => res.data)
       .catch(errorHandler);
   },
