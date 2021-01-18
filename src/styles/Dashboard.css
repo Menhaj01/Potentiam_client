@@ -13,6 +13,18 @@
   /* overflow: hidden; */
 }
 
+.form-image-container {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid gray;
+}
+
+.form-image-container .form-image {
+  display: block;
+  margin-bottom: 20px;
+}
+
 /* *****************SIDEBAR****************** */
 
 #sidebar-container {

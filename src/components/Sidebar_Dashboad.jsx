@@ -18,25 +18,51 @@ class Sidebar_Dashboad extends React.Component {
 
   render() {
     return (
-      <div id="sidebar-container">
-        <ul className="sidebar">
-          <li onClick={this.handleToggle} className="active item">
-            {<AiFillDashboard />}
-          </li>
-          <li
-            onClick={this.handleToggle}
-            className={`${!this.state.activeState} item`}
-          >
-            {<FaImage />}
-          </li>
-          <li onClick={this.handleToggle} className="item">
-            {<FaChromecast />}
-          </li>
-          <li onClick={this.handleToggle} className="setting item">
-            {<AiFillSetting />}
-          </li>
-        </ul>
-      </div>
+      <React.Fragment>
+        <div id="sidebar-container">
+          <ul className="sidebar">
+            <li onClick={this.handleToggle} id="resume" className="active item">
+              {/* {<AiFillDashboard />} */}
+              Resume
+            </li>
+            <li onClick={this.handleToggle} id="picture" className=" item">
+              {/* {<FaImage />} */}
+              Picture
+            </li>
+            <li onClick={this.handleToggle} id="form" className="item">
+              {/* {<FaChromecast />} */}
+              Form
+            </li>
+            <li
+              onClick={this.handleToggle}
+              id="setting"
+              className="setting item"
+            >
+              {/* {<AiFillSetting />} */}
+              Setting
+            </li>
+          </ul>
+        </div>
+      </React.Fragment>
+      // <div id="sidebar-container">
+      //   <ul className="sidebar">
+      //     <li onClick={this.handleToggle} className="active item">
+      //       {<AiFillDashboard />}
+      //     </li>
+      //     <li
+      //       onClick={this.handleToggle}
+      //       className={`${!this.state.activeState} item`}
+      //     >
+      //       {<FaImage />}
+      //     </li>
+      //     <li onClick={this.handleToggle} className="item">
+      //       {<FaChromecast />}
+      //     </li>
+      //     <li onClick={this.handleToggle} className="setting item">
+      //       {<AiFillSetting />}
+      //     </li>
+      //   </ul>
+      // </div>
     );
   }
 }

@@ -20,9 +20,10 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import apiHandler from "../../api/apiHandler";
+// import UploadWidget from "../UploadWidget";
 // import UserContext from "../Auth/UserContext";
 
-export class FormUser extends Component {
+class FormUser extends Component {
   // static contextType = UserContext;
   state = {
     pseudo: "",
@@ -32,7 +33,7 @@ export class FormUser extends Component {
     categories: [],
     name_category: "",
     id_category: "",
-    previousValue: null,
+    previousValue: [],
   };
 
   imageRef = React.createRef();
@@ -41,6 +42,12 @@ export class FormUser extends Component {
     apiHandler.getCategories().then((data) => {
       this.setState({
         categories: data,
+      });
+    });
+
+    apiHandler.getUserInfo().then((data) => {
+      this.setState({
+        previousValue: data,
       });
     });
   }
@@ -66,16 +73,18 @@ export class FormUser extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const dataToSend = {
-      pseudo: this.state.pseudo,
-      description: this.state.description,
-      // image: this.state.category,
-      links: this.state.links,
-      id_category: this.state.id_category,
-    };
-    console.log(dataToSend);
+    const formData = new FormData();
+    const copy = { ...this.state };
+    delete copy.categories;
+    delete copy.previousValue;
+    for (let key in copy) {
+      formData.append(key, copy[key]);
+    }
+
+    formData.append("image", this.imageRef.current.files[0]);
+
     apiHandler
-      .updateProfile(dataToSend)
+      .updateProfile(formData)
       .then((dataToSend) => {
         console.log("Profile updated with this data :" + dataToSend);
         this.props.history.push("/");
@@ -92,7 +101,7 @@ export class FormUser extends Component {
     const socialLink = { url: value, network: key };
 
     const linkIndex = this.state.links.findIndex(
-      (eleMent) => eleMent.network === key
+      (element) => element.network === key
     );
 
     if (linkIndex < 0) {
@@ -114,7 +123,12 @@ export class FormUser extends Component {
     }
   };
 
+  handleFileSelect = () => {
+    console.log("test");
+  };
+
   render() {
+    console.log(this.state.previousValue);
     return (
       <Grommet id="userFormContainer" full theme={grommet}>
         <Box fill align="center" justify="center">
@@ -125,7 +139,7 @@ export class FormUser extends Component {
                   id="pseudo"
                   name="pseudo"
                   onChange={this.handleChange}
-                  value={this.state.pseudo}
+                  // value={this.state.previousValue[0].pseudo}
                 />
               </FormField>
 
@@ -151,10 +165,29 @@ export class FormUser extends Component {
                   id="description"
                   name="description"
                   onChange={this.handleChange}
-                  value={this.state.description}
+                  // value={this.state.previousValue[0].description}
                 />
               </FormField>
-              <input type="file" />
+              {/* <UploadWidget
+                ref={this.imageRef}
+                onFileSelect={this.handleFileSelect}
+                name="image"
+              >
+                Changer profile image
+              </UploadWidget> */}
+
+              <div className="form-image-container">
+                <label className="form-image" htmlFor="image">
+                  Pick your Picture
+                </label>
+                <input
+                  ref={this.imageRef}
+                  id="image"
+                  name="image"
+                  type="file"
+                  // value=
+                />
+              </div>
 
               {/* <FormField label="Age" name="age" pad>
                 <RangeInput name="age" min={15} max={75} />

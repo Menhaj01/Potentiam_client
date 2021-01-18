@@ -6,7 +6,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MainProfile from "./pages/MainProfile";
-import Dashboard from "./pages/Dashboard";
+import DashboardResume from "./pages/DashboardResume";
 import CategoryPage from "./pages/CategoryPage";
 // import Sidebar from "./components/Sidebar_Dashboad";
 
@@ -21,7 +21,11 @@ function App() {
         <Route exact path="/category/:id" component={CategoryPage} />
         {/* <Route exact path="/test" component={Sidebar} /> */}
         <ProtectedRoute exact path="/MainProfile" component={MainProfile} />
-        <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+        <ProtectedRoute
+          exact
+          path="/dashboard/resume"
+          component={DashboardResume}
+        />
       </Switch>
     </div>
   );

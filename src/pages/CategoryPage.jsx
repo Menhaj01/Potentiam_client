@@ -23,14 +23,14 @@ class CategoryPage extends React.Component {
           <h1>Improve your</h1>
           <SearchBar searchResult={this.handleSearchResult} />
         </div>
-      <div>
-        {this.state.usersInCategory.map((each) => (
-          <div>
-            <img src={each.image} alt="" />
-            <p>{each.pseudo}</p>
-          </div>
-        ))}
-      </div>
+        <div>
+          {this.state.usersInCategory.map((each) => (
+            <div key={each._id}>
+              <img src={each.image} alt="" />
+              <p>{each.pseudo}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
