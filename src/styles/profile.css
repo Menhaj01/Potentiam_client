@@ -5,7 +5,16 @@
   justify-content: flex-end;
   align-items: flex-start;
 }
-
+.main-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.food-img img {
+  height: 100px;
+  width: 100px;
+}
 .Card {
   width: 550px;
   height: 450px;
