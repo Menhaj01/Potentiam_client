@@ -1,17 +1,29 @@
 import React from "react";
+import apiHandler from "../api/apiHandler";
 
 class CategoryPage extends React.Component {
   state = {
     usersInCategory: [],
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    apiHandler.getUsersByCategory(this.props.match.params.id).then((data) => {
+      this.setState({
+        usersInCategory: data,
+      });
+      console.log(this.state.usersInCategory);
+    });
+  }
 
   render() {
-    console.log(this.props.match.id);
     return (
       <div>
-        <h1></h1>
+        {this.state.usersInCategory.map((each) => (
+          <div>
+            <img src={each.image} alt="" />
+            <p>{each.pseudo}</p>
+          </div>
+        ))}
       </div>
     );
   }

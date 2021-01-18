@@ -59,10 +59,13 @@ export default {
   },
 
   getUsersByCategory(id) {
-    return service
-      .get("/api/user/all/bycategory", { params: { id_category: id } })
-      .then((res) => res.data)
-      .catch(errorHandler);
+    return (
+      service
+        .get(`/api/user/all/bycategory?id_category=${id}`)
+        // .get("/api/user/all/bycategory", { params: { id_category: id } })
+        .then((res) => res.data)
+        .catch(errorHandler)
+    );
   },
 
   updateProfile(data) {

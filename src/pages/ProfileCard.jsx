@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/profile.css";
 import SocialFollow from "../components/SocialFollow";
 import { withUser } from "../components/Auth/withUser";
-import apiHandler from "../api/apiHandler";
+// import apiHandler from "../api/apiHandler";
 
 // class ProfileCard extends React.Component {
 const ProfileCard = (props) => {
