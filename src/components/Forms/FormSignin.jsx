@@ -50,6 +50,7 @@ class FormSignin extends Component {
     }
 
     return (
+      <div className="backgroundCOlor--sign">
       <div className="Form-Sign">
         <div className="div-sign">
           <h1>WELCOME TO POTENTIAM</h1>
@@ -87,6 +88,7 @@ class FormSignin extends Component {
             </Stack>
           </form>
         </div>
+      </div>
       </div>
     );
   }
