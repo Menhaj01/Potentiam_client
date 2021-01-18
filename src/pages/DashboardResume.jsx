@@ -7,7 +7,7 @@ import SettingDashboard from "../components/SettingDashboard";
 import "../styles/Dashboard.css";
 // import SidebarDashboad from "../components/Sidebar_Dashboad";
 
-class Dashboard extends React.Component {
+class DashboardResume extends React.Component {
   state = {
     resumePage: true,
     formPage: false,
@@ -143,4 +143,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default DashboardResume;

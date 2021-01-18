@@ -43,13 +43,15 @@ const NavMain = (props) => {
               size="md"
               as={NavLink}
               exact
-              to="/dashboard"
+              to="/dashboard/resume"
               variant="ghost"
               m="4px 0"
             >
               Dashboard
             </Button>
-            <Button variant="ghost">{context.user && context.user.pseudo}</Button>
+            <Button variant="ghost">
+              {context.user && context.user.pseudo}
+            </Button>
             <Button
               colorScheme="red"
               size="md"

@@ -24,18 +24,19 @@ class CategoryPage extends React.Component {
           <h1>Improve your</h1>
           <SearchBar searchResult={this.handleSearchResult} />
         </div>
+
         <div className="btn-style">
-        <button className="btn-filter">Filter by like ⇩</button>
+          <button className="btn-filter">Filter by like ⇩</button>
           <button className="btn-filter">Recent Influencers ⇩</button>
         </div>
-      <div>
-        {this.state.usersInCategory.map((each) => (
-          <div>
-            <img src={each.image} alt="" />
-            <p>{each.pseudo}</p>
-          </div>
-        ))}
-      </div>
+        <div className="category-wrap">
+          {this.state.usersInCategory.map((each) => (
+            <div className="category-user" key={each._id}>
+              <img className="category-user-img" src={each.image} alt="" />
+              <p>{each.pseudo}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
