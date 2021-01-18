@@ -4,12 +4,14 @@ div .img--header-category {
     height: 500px;
     background-size: cover;
     background-position: 40% 40%;
+    margin-bottom: 12px;
     }
     
     .img--header-category h1 {
         color: white;
-        font-size: 40px;
+        font-size: 70px;
         line-height: 80px;
+        font-weight:700;
     }
     
     .category {
@@ -25,3 +27,10 @@ div .img--header-category {
         flex-direction: column;
         align-items: center;
     }
+
+.btn-filter {
+color: rgb(55, 28, 173);
+margin: 20px;
+border: solid;
+padding: 5px;
+}
