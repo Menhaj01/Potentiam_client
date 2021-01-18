@@ -1,0 +1,27 @@
+div .img--header-category {
+    background-image: url("https://res.cloudinary.com/dqwbskuge/image/upload/v1610705874/prateek-katyal-xv7-GlvBLFw-unsplash_srfecl.jpg");
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: 40% 40%;
+    }
+    
+    .img--header-category h1 {
+        color: white;
+        font-size: 40px;
+        line-height: 80px;
+    }
+    
+    .category {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .img--header-category {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }

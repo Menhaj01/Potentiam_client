@@ -1,4 +1,3 @@
-import { Search } from "grommet-icons";
 import React from "react";
 import "../styles/home.css";
 import SearchBar from "../components/Search/SearchBar";

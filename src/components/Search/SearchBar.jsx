@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import "../../styles/searchBar.css";
 
 class SearchBar extends Component {
 
@@ -16,7 +17,7 @@ handleChange = (event) => {
   render() {
     return (
       <form>
-        <input onChange={this.handleChange} type="search"></input>
+        <input className="input-search-bar" placeholder="Type to search..." onChange={this.handleChange} type="search"></input>
       </form>
     );
   }
