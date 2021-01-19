@@ -13,9 +13,13 @@ class CategoryPage extends React.Component {
       this.setState({
         usersInCategory: data,
       });
-      console.log(this.state.usersInCategory);
+      // console.log(this.state.usersInCategory);
     });
   }
+
+  handleClick = (id) => {
+    this.props.history.push(`/mainProfile/${id}`);
+  };
 
   render() {
     return (
@@ -31,7 +35,11 @@ class CategoryPage extends React.Component {
         </div>
         <div className="category-wrap">
           {this.state.usersInCategory.map((each) => (
-            <div className="category-user" key={each._id}>
+            <div
+              onClick={() => this.handleClick(each._id)}
+              className="category-user"
+              key={each._id}
+            >
               <img className="category-user-img" src={each.image} alt="" />
               <p>{each.pseudo}</p>
             </div>

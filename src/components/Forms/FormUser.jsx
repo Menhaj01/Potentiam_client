@@ -20,11 +20,10 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import apiHandler from "../../api/apiHandler";
-// import UploadWidget from "../UploadWidget";
-// import UserContext from "../Auth/UserContext";
+import { withUser } from "../Auth/withUser";
+import { buildFormData } from "../../utils";
 
 class FormUser extends Component {
-  // static contextType = UserContext;
   state = {
     pseudo: "",
     description: "",
@@ -33,7 +32,6 @@ class FormUser extends Component {
     categories: [],
     name_category: "",
     id_category: "",
-    previousValue: [],
   };
 
   imageRef = React.createRef();
@@ -47,7 +45,7 @@ class FormUser extends Component {
 
     apiHandler.getUserInfo().then((data) => {
       this.setState({
-        previousValue: data,
+        ...data,
       });
     });
   }
@@ -63,7 +61,7 @@ class FormUser extends Component {
 
   handleSelect = (event) => {
     const value = event.option;
-    console.log(value.name);
+    // console.log(value.name);
     this.setState({
       id_category: value._id,
       name_category: value.name,
@@ -76,17 +74,22 @@ class FormUser extends Component {
     const formData = new FormData();
     const copy = { ...this.state };
     delete copy.categories;
-    delete copy.previousValue;
-    for (let key in copy) {
-      formData.append(key, copy[key]);
-    }
+    delete copy.name_category;
+
+    buildFormData(formData, copy);
 
     formData.append("image", this.imageRef.current.files[0]);
 
+    console.log(this.state);
+    //This is to console.log the data in formData before sending
+    console.log(Object.fromEntries(formData));
+
     apiHandler
       .updateProfile(formData)
-      .then((dataToSend) => {
-        console.log("Profile updated with this data :" + dataToSend);
+      .then((dataReceived) => {
+        console.log("Profile updated with this data :" + dataReceived);
+        //To update the contexte and by the way all modif
+        this.props.context.setUser(dataReceived);
         this.props.history.push("/");
       })
       .catch((err) => {
@@ -123,12 +126,8 @@ class FormUser extends Component {
     }
   };
 
-  handleFileSelect = () => {
-    console.log("test");
-  };
-
   render() {
-    console.log(this.state.previousValue);
+    // console.log(this.state.previousValue);
     return (
       <Grommet id="userFormContainer" full theme={grommet}>
         <Box fill align="center" justify="center">
@@ -139,7 +138,7 @@ class FormUser extends Component {
                   id="pseudo"
                   name="pseudo"
                   onChange={this.handleChange}
-                  // value={this.state.previousValue[0].pseudo}
+                  // value={this.state.pseudo}
                 />
               </FormField>
 
@@ -149,10 +148,7 @@ class FormUser extends Component {
                   name="category"
                   options={this.state.categories}
                   labelKey={(option) => option.name}
-                  // options={this.state.categories.map((item) => item.name)}
                   onChange={this.handleSelect}
-                  // valueKey={(options) => options._id}
-                  // valueKey={this.state.name_category}
                 />
               </FormField>
 
@@ -188,10 +184,6 @@ class FormUser extends Component {
                   // value=
                 />
               </div>
-
-              {/* <FormField label="Age" name="age" pad>
-                <RangeInput name="age" min={15} max={75} />
-              </FormField> */}
 
               <FormField label={<FaSnapchatSquare />} name="snapchat">
                 <MaskedInput
@@ -244,4 +236,4 @@ class FormUser extends Component {
   }
 }
 
-export default withRouter(FormUser);
+export default withRouter(withUser(FormUser));

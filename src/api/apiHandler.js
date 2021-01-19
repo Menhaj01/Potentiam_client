@@ -51,6 +51,13 @@ export default {
       .catch(errorHandler);
   },
 
+  getOneUser(id) {
+    return service
+      .get(`/api/user/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getCategories() {
     return service
       .get("/api/category/all")
@@ -72,6 +79,20 @@ export default {
   updateProfile(data) {
     return service
       .patch("/api/user/me", data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  followUser(idFollower, idToFollow) {
+    return service
+      .patch(`/api/user/follow/${idFollower}`, idToFollow)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  unfollowUser(idFollower, idToFollow) {
+    return service
+      .patch(`/api/user/unfollow/${idFollower}`, idToFollow)
       .then((res) => res.data)
       .catch(errorHandler);
   },
