@@ -23,14 +23,12 @@ const ProfileCard = (props) => {
     // console.log(props.propsFromMainProfile);
     apiHandler.followUser(idFollower, idToFollow).then((data) => {
       props.context.setUser(data);
-      // props.history.push("/dashbord");
     });
   };
 
   const handleUnfollow = () => {
     apiHandler.unfollowUser(idFollower, idToFollow).then((data) => {
       props.context.setUser(data);
-      // props.history.push("/dashbord");
     });
   };
 
