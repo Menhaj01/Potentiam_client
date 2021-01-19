@@ -18,6 +18,10 @@ const ProfileCard = (props) => {
   return (
     <div className="Card">
       <div className="upper-container">
+        <div className="Card-btn">
+          <button className="follow-btn">Follow</button>
+          <button className="unfollow-btn">Unfollow</button>
+        </div>
         <div className="image-follwers ">
           <div className="image-container">
             <img src={props.propsFromMainProfile.image} alt="img" />

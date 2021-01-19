@@ -35,16 +35,48 @@
   justify-content: space-between;
   flex-direction: column;
 }
+
 .Card {
   width: 50vw;
   height: 80vh;
   background: white;
   border-radius: 30px;
-  box-shadow: 0px 1px 10px 1px black;
   text-align: center;
+  line-height: 30px;
+  color: black;
+  border: 1px solid;
+  padding: 15px;
+  animation: animated-border 1.5s infinite;
+}
+@keyframes animated-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 6, 6, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 40px rgba(255, 255, 255, 0);
+  }
 }
 .upper-container {
   height: 100px;
+}
+.Card-btn {
+}
+.follow-btn {
+  padding: 5px 25px;
+  border-radius: 5px;
+  background-color: coral;
+  margin-right: 30px;
+}
+.follow-btn:hover {
+  background-color: brown;
+}
+.unfollow-btn {
+  padding: 5px 25px;
+  border-radius: 5px;
+  background-color: coral;
+}
+.unfollow-btn:hover {
+  background-color: brown;
 }
 .image-container img {
   background: white;
@@ -53,6 +85,9 @@
   border-radius: 50%;
   padding: 5px;
   transform: translate(95px, 45px);
+}
+.image-container {
+  display: flex;
 }
 
 /* SOCIAL STUFF */
