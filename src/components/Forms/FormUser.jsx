@@ -20,14 +20,10 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import apiHandler from "../../api/apiHandler";
-import UploadWidget from "../UploadWidget";
 import { withUser } from "../Auth/withUser";
 import { buildFormData } from "../../utils";
-// import { UserContext } from "../Auth/UserContext";
 
 class FormUser extends Component {
-  // static contextType = UserContext;
-
   state = {
     pseudo: "",
     description: "",
@@ -80,22 +76,6 @@ class FormUser extends Component {
     delete copy.categories;
     delete copy.name_category;
 
-    // ******New try to figureOut the formData sending Array of Object*******
-
-    // for (const key in copy) {
-    //   if (key === "image") continue;
-    //   formData.append(key, copy[key]);
-    // }
-
-    // if (this.imageRef.current.files[0]) {
-    //   formData.append("image", this.imageRef.current.files[0]);
-    // }
-
-    //*******End of trying code*********
-
-    // for (let key in copy) {
-    //   formData.append(key, copy[key]);
-    // }
     buildFormData(formData, copy);
 
     formData.append("image", this.imageRef.current.files[0]);
@@ -145,11 +125,6 @@ class FormUser extends Component {
       });
     }
   };
-  // ********NEW TRYYYY***********
-  handleFileSelect = (temporaryURL) => {
-    this.setState({ tmpUrl: temporaryURL });
-  };
-  // ********END TRY**********
 
   render() {
     // console.log(this.state.previousValue);
@@ -198,16 +173,7 @@ class FormUser extends Component {
               </UploadWidget> */}
 
               <div className="form-image-container">
-                {/* *********NEW TRY********* */}
-                <UploadWidget
-                  ref={this.imageRef}
-                  onFileSelect={this.handleFileSelect}
-                  name="image"
-                >
-                  Change profile image
-                </UploadWidget>
-                {/* ******END OF TRY****** */}
-                {/* <label className="form-image" htmlFor="image">
+                <label className="form-image" htmlFor="image">
                   Pick your Picture
                 </label>
                 <input
@@ -216,7 +182,7 @@ class FormUser extends Component {
                   name="image"
                   type="file"
                   // value=
-                /> */}
+                />
               </div>
 
               <FormField label={<FaSnapchatSquare />} name="snapchat">

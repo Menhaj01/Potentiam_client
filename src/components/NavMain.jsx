@@ -43,7 +43,7 @@ const NavMain = (props) => {
               size="md"
               as={NavLink}
               exact
-              to="/dashboard/resume"
+              to="/dashboard"
               variant="ghost"
               m="4px 0"
             >

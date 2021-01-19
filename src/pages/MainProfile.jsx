@@ -22,7 +22,6 @@ class MainProfile extends React.Component {
     if (!this.state.userToDisplay) {
       return <p>Page is loading ...</p>;
     }
-    // console.log(this.props);
     // console.log(this.state.userToDisplay);
     return (
       <div className="main-profile">

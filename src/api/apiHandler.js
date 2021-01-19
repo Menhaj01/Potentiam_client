@@ -82,4 +82,18 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  followUser(idFollower, idToFollow) {
+    return service
+      .patch(`/api/user/follow/${idFollower}`, idToFollow)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  unfollowUser(idFollower, idToFollow) {
+    return service
+      .patch(`/api/user/unfollow/${idFollower}`, idToFollow)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };

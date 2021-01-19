@@ -14,29 +14,29 @@ export default function SocialFollow(props) {
     <div className="social-container">
       <h3>{user.pseudo}</h3>
       {user.links &&
-        user.links.map((link) => {
+        user.links.map((link, i) => {
           return link.network === "Youtube" ? (
-            <a href={link.url} className="youtube social">
+            <a key={link._id} href={link.url} className="youtube social">
               <FontAwesomeIcon icon={faYoutube} size="2x" />
             </a>
           ) : link.network === "Twitter" ? (
-            <a href={link.url} className="twitter social">
+            <a key={link._id} href={link.url} className="twitter social">
               <FontAwesomeIcon icon={faTwitter} size="2x" />
             </a>
           ) : link.network === "Facebook" ? (
-            <a href={link.url} className="facebook social">
+            <a key={link._id} href={link.url} className="facebook social">
               <FontAwesomeIcon icon={faFacebook} size="2x" />
             </a>
           ) : link.network === "Instagram" ? (
-            <a href={link.url} className="instagram social">
+            <a key={link._id} href={link.url} className="instagram social">
               <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
           ) : link.network === "Snapchat" ? (
-            <a href={link.url} className="instagram social">
+            <a key={link._id} href={link.url} className="instagram social">
               <FontAwesomeIcon icon={faSnapchat} size="2x" />
             </a>
           ) : (
-            <p>No social network</p>
+            <p key={i + "link"}>No social network</p>
           );
         })}
 
