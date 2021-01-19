@@ -22,9 +22,11 @@ import {
 import apiHandler from "../../api/apiHandler";
 // import UploadWidget from "../UploadWidget";
 import { withUser } from "../Auth/withUser";
+// import { UserContext } from "../Auth/UserContext";
 
 class FormUser extends Component {
   // static contextType = UserContext;
+
   state = {
     pseudo: "",
     description: "",
@@ -88,15 +90,17 @@ class FormUser extends Component {
     //This is to console.log the data in formData before sending
     console.log(Object.fromEntries(formData));
 
-    // apiHandler
-    //   .updateProfile(formData)
-    //   .then((dataToSend) => {
-    //     console.log("Profile updated with this data :" + dataToSend);
-    //     this.props.history.push("/");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    apiHandler
+      .updateProfile(formData)
+      .then((dataReceived) => {
+        console.log("Profile updated with this data :" + dataReceived);
+        //To update the contexte and by the way all modif
+        this.props.context.setUser(dataReceived);
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   handleSocialLinks = (event) => {
@@ -144,7 +148,7 @@ class FormUser extends Component {
                   id="pseudo"
                   name="pseudo"
                   onChange={this.handleChange}
-                  value={this.state.pseudo}
+                  // value={this.state.pseudo}
                 />
               </FormField>
 
@@ -154,10 +158,7 @@ class FormUser extends Component {
                   name="category"
                   options={this.state.categories}
                   labelKey={(option) => option.name}
-                  // options={this.state.categories.map((item) => item.name)}
                   onChange={this.handleSelect}
-                  // valueKey={(options) => options._id}
-                  // valueKey={this.state.name_category}
                 />
               </FormField>
 
@@ -193,10 +194,6 @@ class FormUser extends Component {
                   // value=
                 />
               </div>
-
-              {/* <FormField label="Age" name="age" pad>
-                <RangeInput name="age" min={15} max={75} />
-              </FormField> */}
 
               <FormField label={<FaSnapchatSquare />} name="snapchat">
                 <MaskedInput

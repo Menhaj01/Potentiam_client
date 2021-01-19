@@ -10,7 +10,6 @@ import {
 
 export default function SocialFollow(props) {
   const user = props.propsFromProfileCard;
-
   return (
     <div className="social-container">
       <h3>{user.pseudo}</h3>
@@ -32,10 +31,12 @@ export default function SocialFollow(props) {
             <a href={link.url} className="instagram social">
               <FontAwesomeIcon icon={faInstagram} size="2x" />
             </a>
-          ) : (
+          ) : link.network === "Snapchat" ? (
             <a href={link.url} className="instagram social">
               <FontAwesomeIcon icon={faSnapchat} size="2x" />
             </a>
+          ) : (
+            <p>No social network</p>
           );
         })}
 
