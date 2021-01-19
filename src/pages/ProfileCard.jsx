@@ -7,6 +7,14 @@ const ProfileCard = (props) => {
     return <p>Page is loading ...</p>;
   }
 
+  const handleFollow = () => {
+    console.log(props.propsFromMainProfile);
+  };
+
+  const handleUnfollow = () => {
+    console.log(props.propsFromMainProfile);
+  };
+
   return (
     <div className="Card">
       <div className="upper-container">
