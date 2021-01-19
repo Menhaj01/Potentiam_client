@@ -11,10 +11,10 @@ export class MainProfile extends Component {
           {" "}
           <ProfileCard />
         </div>
-        <div className="food-img">
-          <div className="food-img">
-            <h1>Alicia cooking</h1>
-            <div>
+        <div className="main-container">
+          <div className="title">
+            <h1 className>Alicia cooking</h1>
+            <div className="food-img">
               <span>FOOD</span>
               <img
                 src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"

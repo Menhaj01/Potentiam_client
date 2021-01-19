@@ -7,7 +7,8 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function SocialFollow() {
+export default function SocialFollow(props) {
+  console.log(props);
   return (
     <div className="social-container">
       <h3>@LearnBuildTeach</h3>

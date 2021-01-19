@@ -12,9 +12,28 @@
 .food-img img {
   height: 100px;
   width: 100px;
+  border-radius: 50%;
 }
 .food-img {
-  margin-left: 20px;
+  margin-left: 50px;
+}
+.title h1 {
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 70px;
+  margin-left: 30px;
+}
+.food-img span {
+  font-weight: bold;
+  font-size: 1.3rem;
+  border: 1px solid black;
+  padding: 3px;
+}
+.main-container {
+  display: flex;
+  height: 70vh;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .Card {
   width: 50vw;
