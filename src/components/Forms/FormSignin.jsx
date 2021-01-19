@@ -60,14 +60,12 @@ class FormSignin extends Component {
             <FormControl isRequired>
               <FormLabel htmlFor="email">Email address</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<Icon name="info" />} />
-                <Input type="email" id="email" name="email" />
+                <Input type="email" id="email" name="email" placeholder="Enter your email"/>
               </InputGroup>
             </FormControl>
             <FormControl isRequired>
               <FormLabel htmlFor="password">Create a password</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<Icon name="lock" />} />
                 <Input
                   type="password"
                   id="password"
@@ -79,9 +77,9 @@ class FormSignin extends Component {
             <Button
               type="submit"
               size="md"
-              height="48px"
-              width="200px"
-              colorScheme="red"
+              height="38px"
+              width="150px"
+              colorScheme="purple"
             >
               Let's go in
             </Button>

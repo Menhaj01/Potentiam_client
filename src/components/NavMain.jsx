@@ -39,7 +39,7 @@ const NavMain = (props) => {
         {context.isLoggedIn && (
           <React.Fragment>
             <Button
-              colorScheme="red"
+              colorScheme="purple"
               size="md"
               as={NavLink}
               exact
@@ -50,10 +50,10 @@ const NavMain = (props) => {
               Dashboard
             </Button>
             <Button variant="ghost">
-              {context.user && context.user.pseudo}
+              {context.user && context.user.pseudo} profile
             </Button>
             <Button
-              colorScheme="red"
+              colorScheme="purple"
               size="md"
               as={NavLink}
               exact
@@ -85,7 +85,7 @@ const NavMain = (props) => {
               exact
               to="/signup"
               m="4px 0"
-              colorScheme="red"
+              colorScheme="purple"
               variant="solid"
             >
               Signup

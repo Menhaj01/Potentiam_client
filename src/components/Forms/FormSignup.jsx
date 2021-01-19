@@ -60,7 +60,6 @@ class FormSignup extends Component {
           <FormControl isRequired>
             <FormLabel htmlFor="pseudo">Pseudo</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<Icon name="info" />} />
                 <Input
                   onChange={this.handleChange}
                   value={this.state.pseudo}
@@ -77,7 +76,6 @@ class FormSignup extends Component {
             <FormControl isRequired>
             <FormLabel htmlFor="email">Email address</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<Icon name="info" />} />
                 <Input
                   onChange={this.handleChange}
                   value={this.state.email}
@@ -92,7 +90,6 @@ class FormSignup extends Component {
             <FormControl isRequired>
               <FormLabel htmlFor="password">Create a password</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<Icon name="lock" />} />
                 <Input
                   onChange={this.handleChange}
                   value={this.state.password}
@@ -107,7 +104,7 @@ class FormSignup extends Component {
             <Button type="submit" size="md"
   height="48px"
   width="200px"
- colorScheme="red">
+ colorScheme="purple">
               Let's go in
             </Button>
           </Stack>
