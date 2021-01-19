@@ -51,6 +51,13 @@ export default {
       .catch(errorHandler);
   },
 
+  getOneUser(id) {
+    return service
+      .get(`/api/user/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getCategories() {
     return service
       .get("/api/category/all")

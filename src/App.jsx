@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/category/:id" component={CategoryPage} />
         {/* <Route exact path="/test" component={Sidebar} /> */}
-        <ProtectedRoute exact path="/MainProfile" component={MainProfile} />
+        <ProtectedRoute exact path="/mainProfile/:id" component={MainProfile} />
         <ProtectedRoute
           exact
           path="/dashboard/resume"

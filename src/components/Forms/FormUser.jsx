@@ -63,7 +63,7 @@ class FormUser extends Component {
 
   handleSelect = (event) => {
     const value = event.option;
-    console.log(value.name);
+    // console.log(value.name);
     this.setState({
       id_category: value._id,
       name_category: value.name,
@@ -73,25 +73,31 @@ class FormUser extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log(this.state);
+
     const formData = new FormData();
     const copy = { ...this.state };
     delete copy.categories;
     delete copy.previousValue;
+    delete copy.name_category;
     for (let key in copy) {
       formData.append(key, copy[key]);
     }
 
     formData.append("image", this.imageRef.current.files[0]);
 
-    apiHandler
-      .updateProfile(formData)
-      .then((dataToSend) => {
-        console.log("Profile updated with this data :" + dataToSend);
-        this.props.history.push("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //This is to console.log the data in formData before sending
+    console.log(Object.fromEntries(formData));
+
+    // apiHandler
+    //   .updateProfile(formData)
+    //   .then((dataToSend) => {
+    //     console.log("Profile updated with this data :" + dataToSend);
+    //     this.props.history.push("/");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   handleSocialLinks = (event) => {
@@ -128,7 +134,7 @@ class FormUser extends Component {
   };
 
   render() {
-    console.log(this.state.previousValue);
+    // console.log(this.state.previousValue);
     return (
       <Grommet id="userFormContainer" full theme={grommet}>
         <Box fill align="center" justify="center">
