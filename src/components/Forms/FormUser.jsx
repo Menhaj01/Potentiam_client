@@ -21,7 +21,7 @@ import {
 } from "react-icons/fa";
 import apiHandler from "../../api/apiHandler";
 // import UploadWidget from "../UploadWidget";
-// import UserContext from "../Auth/UserContext";
+import { withUser } from "../Auth/withUser";
 
 class FormUser extends Component {
   // static contextType = UserContext;
@@ -33,7 +33,6 @@ class FormUser extends Component {
     categories: [],
     name_category: "",
     id_category: "",
-    previousValue: [],
   };
 
   imageRef = React.createRef();
@@ -47,7 +46,7 @@ class FormUser extends Component {
 
     apiHandler.getUserInfo().then((data) => {
       this.setState({
-        previousValue: data,
+        ...data,
       });
     });
   }
@@ -145,7 +144,7 @@ class FormUser extends Component {
                   id="pseudo"
                   name="pseudo"
                   onChange={this.handleChange}
-                  // value={this.state.previousValue[0].pseudo}
+                  value={this.state.pseudo}
                 />
               </FormField>
 
@@ -250,4 +249,4 @@ class FormUser extends Component {
   }
 }
 
-export default withRouter(FormUser);
+export default withRouter(withUser(FormUser));
