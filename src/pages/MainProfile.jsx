@@ -32,8 +32,8 @@ class MainProfile extends React.Component {
         <div className="main-container">
           <div className="title">
             <h1>{this.state.userToDisplay.pseudo}</h1>
+            <span>FOOD</span>
             <div className="food-img">
-              <span>FOOD</span>
               <img
                 src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                 alt=""
@@ -41,14 +41,15 @@ class MainProfile extends React.Component {
 
               <p>Yummy meal milly </p>
             </div>
-          </div>
-          <div className="food-img">
+
             <span>RUNNING</span>
-            <img
-              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-              alt=""
-            />
-            <p>Alicia cooking </p>
+            <div className="food-img">
+              <img
+                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                alt=""
+              />
+              <p>Alicia cooking </p>
+            </div>
           </div>
         </div>
       </div>
