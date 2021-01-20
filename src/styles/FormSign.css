@@ -17,26 +17,26 @@
     padding: 20px;
 }
 
-.Form-Sign div {
+/* .Form-Sign div {
     align-items: center;
     justify-content: center;
     display: flex;
-}
+} */
 
-.div-sign {
+.div-sign div {
    justify-content: center;
    align-items: center;
 }
 
-
-/* .backgroundCOlor--sign .div-sign {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+.test {
+    text-align: center;
+    width: 100%;
+}
 
 
-.div-sign {
+
+
+.div-sign div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,10 @@
 }
 
 .div-sign  h1{
-    font-size: 30px;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 .backgroundCOlor--sign {
@@ -55,4 +58,35 @@ height: 92vh;
 display: flex;
 align-items: center;
 justify-content: center;
+}
+
+.btn-sbm {
+    background: linear-gradient( 90deg, #e66465, #a556e6);
+        color: white;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.form-sign {
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+.sign-password {
+    margin: 10px 0px;
+border-bottom: 1px solid rgb(136, 57, 136);
+}
+
+.sign-password input {
+    width: 20vw;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+
+.sign-password input:focus {
+outline: none;
 }

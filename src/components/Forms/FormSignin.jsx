@@ -51,42 +51,35 @@ class FormSignin extends Component {
 
     return (
       <div className="backgroundCOlor--sign">
-      <div className="Form-Sign">
-        <div className="div-sign">
-          <h1>WELCOME TO POTENTIAM</h1>
-          <p>What will be your new interest ?</p>
-          <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-            <Stack spacing={3}>
-            <FormControl isRequired>
-              <FormLabel htmlFor="email">Email address</FormLabel>
-              <InputGroup>
-                <Input type="email" id="email" name="email" placeholder="Enter your email"/>
-              </InputGroup>
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel htmlFor="password">Create a password</FormLabel>
-              <InputGroup>
-                <Input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Enter your password"
-                />
-              </InputGroup>
-            </FormControl>
-            <Button
-              type="submit"
-              size="md"
-              height="38px"
-              width="150px"
-              colorScheme="purple"
-            >
-              Let's go in
-            </Button>
-            </Stack>
-          </form>
+        <div className="Form-Sign">
+          <div className="div-sign">
+            <h1>Sign in</h1>
+            <form className="form-sign" onChange={this.handleChange} onSubmit={this.handleSubmit}>
+              <div className="sign-password">
+              <label>Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+              />
+              </div>
+              <div className="sign-password">
+              <label htmlFor="password">Create a password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+              />
+              </div>
+              <button
+              className="btn-sbm"
+                type="submit"
+              >
+                Let's go in
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
       </div>
     );
   }

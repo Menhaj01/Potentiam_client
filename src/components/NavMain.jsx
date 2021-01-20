@@ -49,7 +49,9 @@ const NavMain = (props) => {
             >
               Dashboard
             </Button>
-            <Button variant="ghost">
+            <Button className="btn-ctx-pseudo" variant="ghost" as={NavLink}
+              exact
+              to="/MainProfile">
               {context.user && context.user.pseudo} profile
             </Button>
             <Button

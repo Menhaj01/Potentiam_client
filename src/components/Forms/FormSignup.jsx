@@ -52,62 +52,43 @@ class FormSignup extends Component {
       <div className="backgroundCOlor--sign">
       <div className="Form-Sign">
         <div className="div-sign">
-        <h1>WELCOME TO POTENTIAM</h1>
-        <p>What will be your new interest ?</p>
-
-        <form onSubmit={this.handleSubmit}>
-          <Stack spacing={3}>
-          <FormControl isRequired>
-            <FormLabel htmlFor="pseudo">Pseudo</FormLabel>
-              <InputGroup>
-                <Input
+        <h1>Sign up</h1>
+        <form className="form-sign" onSubmit={this.handleSubmit}>
+        <div className="sign-password">
+            <label htmlFor="pseudo">Pseudo</label>
+                <input
                   onChange={this.handleChange}
                   value={this.state.pseudo}
                   type="text"
                   id="peusdo"
                   name="pseudo"
-                  placeholder="Choose a pseudo"
-                  width="400px"
                 />
-              </InputGroup>
-            </FormControl>
-
-
-            <FormControl isRequired>
-            <FormLabel htmlFor="email">Email address</FormLabel>
-              <InputGroup>
-                <Input
+            </div>
+            <div className="sign-password">
+            <label htmlFor="email">Email address</label>
+                <input
                   onChange={this.handleChange}
                   value={this.state.email}
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Enter your email"
-                  width="400px"
                 />
-              </InputGroup>
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel htmlFor="password">Create a password</FormLabel>
-              <InputGroup>
-                <Input
+                </div>
+                <div className="sign-password">
+              <label htmlFor="password">Create a password</label>
+                <input
                   onChange={this.handleChange}
                   value={this.state.password}
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="Enter your password"
-                  width="400px"
                 />
-              </InputGroup>
-            </FormControl>
-            <Button type="submit" size="md"
-  height="48px"
-  width="200px"
- colorScheme="purple">
+                </div>
+            <button type="submit"
+  className="btn-sbm"
+  >
               Let's go in
-            </Button>
-          </Stack>
+            </button>
         </form>
       </div>
       </div>
