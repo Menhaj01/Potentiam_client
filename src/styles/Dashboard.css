@@ -7,6 +7,15 @@
   text-decoration: none;
 }
 
+a.socials {
+  transition: transform 250ms;
+  display: inline-block;
+}
+
+a.socials:hover {
+  transform: translateY(-2px);
+}
+
 /* **************USERFORM************* */
 #userFormContainer {
   height: 90vh;
@@ -26,10 +35,12 @@
 }
 
 /* *****************SIDEBAR****************** */
-
 #general-container {
+  width: 100%;
+
   position: relative;
   display: flex;
+  /* overflow: hidden; */
 }
 
 .sideBar {
@@ -47,7 +58,7 @@
 }
 
 .sideBar-ul {
-  background-color: red;
+  background-color: #e49b9b;
   padding: 10px;
   border-radius: 20px 0 0 20px;
 }
@@ -62,22 +73,125 @@
   border-radius: 30px;
   background-color: cadetblue;
   display: grid;
-  grid-template-columns: 3fr 1fr 2fr;
+  grid-template-columns: 2.5fr 0.8fr 1.5fr;
   grid-gap: 10px;
+  background: linear-gradient(90deg, #e49b9b, #af8dca);
   /* z-index: 2; */
 }
-.sect-commun {
-  border: 1px solid;
-}
+
+/* **********SECTION 1********** */
 .dashboard-sect-one {
+  padding: 10px 0 0 50px;
   border-radius: 30px 0 0 30px;
+  overflow: hidden;
+  border: 10px solid;
+  /* display: flex;
+  text-align: center; */
 }
 
+/* **********SECTION 2********** */
+.dashboard-sect-two {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.popularUser-container {
+  padding: 2rem 0;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.popularUser-filtered {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-popularUsers {
+  width: 100%;
+  height: 12rem;
+  margin: 1rem 0;
+}
+.top-popularUsers img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+}
+.popularUser-socialLinks {
+  display: flex;
+  flex-direction: column;
+}
+.popularUser-socialLinks h2 {
+  margin: 1rem 0;
+}
+.social-links {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* **********SECTION 3********** */
 .dashboard-sect-three {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 30px 30px 30px 0;
   background-color: rgb(255, 255, 255);
 }
 
+.sect-three-mainImg {
+  /* overflow: hidden; */
+  margin-top: 2rem;
+  width: 80%;
+  height: 48vh;
+}
+.sect-three-mainImg img {
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+.following-container {
+  width: 80%;
+  height: 40vh;
+  /* height: 495px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  overflow: scroll;
+}
+.sect-three-myFollowing {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.myFollowing-img {
+  width: 9rem;
+  height: 9rem;
+}
+.myFollowing-img img {
+  border-radius: 4.5rem;
+  width: 100%;
+  height: 100%;
+}
+.myFollowing-info {
+  font-weight: bold;
+}
+.myFollowing-addBtn {
+  background-color: #83c7c7;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+.myFollowing-rmvBtn {
+  background-color: #d16363;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
 /* **********RESUME DASHBOARD********** */
 
 #resumeContainer {

@@ -1,58 +1,51 @@
 import React from "react";
 import FormUser from "../components/Forms/FormUser";
+import SocialFollow from "../components/SocialFollow";
 import ResumeDashboard from "../components/ResumeDashboard";
 import SettingDashboard from "../components/SettingDashboard";
-// import { FaImage, FaChromecast } from "react-icons/fa";
-// import { AiFillSetting, AiFillDashboard } from "react-icons/ai";
+import {
+  faYoutube,
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faSnapchat,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/Dashboard.css";
 // import SidebarDashboad from "../components/Sidebar_Dashboad";
 import { withUser } from "../components/Auth/withUser";
+import apiHandler from "../api/apiHandler";
+
+// const DashboardResume = (props) => {
 
 class DashboardResume extends React.Component {
   state = {
-    resumePage: true,
-    formPage: false,
-    settingPage: false,
+    myFollowing: [],
+    topThreeUser: [],
+    followingToSend: [],
   };
 
-  handleToggle = (event) => {
-    const activeResume = document.getElementById("resume");
-    const activeForm = document.getElementById("form");
-    const activeSetting = document.getElementById("setting");
+  componentDidMount() {
+    this.props.context.user.following.map((follow) => {
+      // console.log(follow);
+      apiHandler.getOneUser(follow).then((apiResponse) => {
+        this.setState({
+          myFollowing: [...this.state.myFollowing, apiResponse],
+        });
+      });
+    });
+  }
 
-    if (event.target.id === "resume") {
-      // console.log(activeResume);
-      activeResume.classList.add("active");
-      activeForm.classList.remove("active");
-      activeSetting.classList.remove("active");
-      this.setState({
-        resumePage: true,
-        formPage: false,
-        settingPage: false,
-      });
-    } else if (event.target.id === "form") {
-      activeResume.classList.remove("active");
-      activeForm.classList.add("active");
-      activeSetting.classList.remove("active");
-      this.setState({
-        resumePage: false,
-        formPage: true,
-        settingPage: false,
-      });
-    } else if (event.target.id === "setting") {
-      activeResume.classList.remove("active");
-      activeForm.classList.remove("active");
-      activeSetting.classList.add("active");
-      this.setState({
-        resumePage: false,
-        formPage: false,
-        settingPage: true,
-      });
-    }
+  handleClick = (following) => {
+    this.setState({
+      myFollowing: [...this.state.followingToSend, following],
+    });
   };
 
   render() {
-    console.log(this.props);
+    const currentUser = this.props.context.user;
+    // console.log(this.state.myFollowing.length);
+    console.log(this.state.followingToSend);
     return (
       <div id="general-container">
         <header className="sideBar">
@@ -60,12 +53,134 @@ class DashboardResume extends React.Component {
             <li>Profile</li>
           </ul>
         </header>
+
         <section className="dashboard-content">
-          <div className="dashboard-sect-one sect-commun">ONE</div>
-          <div className="dashboard-sect-two sect-commun">TWO</div>
-          <div className="dashboard-sect-three sect-commun">THREE</div>
+          {/* **********SECTION 1************ */}
+          <div className="dashboard-sect-one sect-commun">
+            <ResumeDashboard />
+          </div>
+
+          {/* **********SECTION 2************ */}
+          <div className="dashboard-sect-two sect-commun">
+            <div className="popularUser-container">
+              <div className="popularUser-filtered">
+                <h2>Top posts</h2>
+                <div className="top-popularUsers">
+                  <img
+                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt=""
+                  />
+                </div>
+                <div className="top-popularUsers">
+                  <img
+                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt=""
+                  />
+                </div>
+                <div className="top-popularUsers">
+                  <img
+                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="popularUser-socialLinks">
+                <h2>Linked accounts</h2>
+                <div className="social-links">
+                  {/* ********SOCIAL LINKS*********** */}
+                  {currentUser.links &&
+                    currentUser.links.map((link, i) => {
+                      return link.network === "Youtube" ? (
+                        <a
+                          key={link._id}
+                          href={link.url}
+                          className="youtube socials"
+                        >
+                          <FontAwesomeIcon icon={faYoutube} size="2x" />
+                        </a>
+                      ) : link.network === "Twitter" ? (
+                        <a
+                          key={link._id}
+                          href={link.url}
+                          className="twitter socials"
+                        >
+                          <FontAwesomeIcon icon={faTwitter} size="2x" />
+                        </a>
+                      ) : link.network === "Facebook" ? (
+                        <a
+                          key={link._id}
+                          href={link.url}
+                          className="facebook socials"
+                        >
+                          <FontAwesomeIcon icon={faFacebook} size="2x" />
+                        </a>
+                      ) : link.network === "Instagram" ? (
+                        <a
+                          key={link._id}
+                          href={link.url}
+                          className="instagram socials"
+                        >
+                          <FontAwesomeIcon icon={faInstagram} size="2x" />
+                        </a>
+                      ) : link.network === "Snapchat" ? (
+                        <a
+                          key={link._id}
+                          href={link.url}
+                          className="instagram socials"
+                        >
+                          <FontAwesomeIcon icon={faSnapchat} size="2x" />
+                        </a>
+                      ) : (
+                        <p key={i + "link"}>No social network</p>
+                      );
+                    })}
+                  {/* ********END OCIAL LINKS*********** */}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* **********SECTION 3************ */}
+          <div className="dashboard-sect-three sect-commun">
+            <div className="sect-three-mainImg">
+              <img
+                src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                alt=""
+              />
+            </div>
+            <div className="following-container">
+              {this.state.myFollowing.length > 0 &&
+                this.state.myFollowing.map((item) => {
+                  return (
+                    <div key={item._id} className="sect-three-myFollowing">
+                      <div className="myFollowing-img">
+                        <img src={item.image} alt="" />
+                      </div>
+                      <div className="myFollowing-info">
+                        <h3>{item.pseudo}</h3>
+                      </div>
+                      <div>
+                        <button
+                          onClick={() => this.handleClick(item)}
+                          className="myFollowing-addBtn"
+                        >
+                          Add
+                        </button>
+                        <button
+                          onClick={this.handleClick}
+                          className="myFollowing-rmvBtn"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
         </section>
       </div>
+
       // <React.Fragment>
       //   <div id="sidebar-container">
       //     <ul className="sidebar">

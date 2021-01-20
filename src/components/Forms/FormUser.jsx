@@ -10,18 +10,6 @@ import {
   faSnapchat,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  Grommet,
-  MaskedInput,
-  Select,
-  TextArea,
-  TextInput,
-} from "grommet";
-import { grommet } from "grommet/themes";
-import {
   FaFacebookSquare,
   FaInstagramSquare,
   FaTwitterSquare,
@@ -229,110 +217,6 @@ class FormUser extends Component {
           </button>
         </form>
       </div>
-
-      /*  <Grommet id="userFormContainer" full theme={grommet}>
-        <Box fill align="center" justify="center">
-          <Box width="xlarge">
-            <Form onSubmit={this.handleSubmit}>
-              <FormField htmlFor="pseudo" label="Psuedo" name="pseudo">
-                <TextInput
-                  id="pseudo"
-                  name="pseudo"
-                  onChange={this.handleChange}
-                  // value={this.state.pseudo}
-                />
-              </FormField>
-
-              <FormField htmlFor="category" label="Category" name="category">
-                <Select
-                  id="category"
-                  name="category"
-                  options={this.state.categories}
-                  labelKey={(option) => option.name}
-                  onChange={this.handleSelect}
-                />
-              </FormField>
-
-              <FormField
-                htmlFor="description"
-                label="Description"
-                name="description"
-              >
-                <TextArea
-                  id="description"
-                  name="description"
-                  onChange={this.handleChange}
-                  // value={this.state.previousValue[0].description}
-                />
-              </FormField>
-              {/* <UploadWidget
-                ref={this.imageRef}
-                onFileSelect={this.handleFileSelect}
-                name="image"
-              >
-                Changer profile image
-              </UploadWidget> */
-
-      /*  <div className="form-image-container">
-                <label className="form-image" htmlFor="image">
-                  Pick your Picture
-                </label>
-                <input
-                  ref={this.imageRef}
-                  id="image"
-                  name="image"
-                  type="file"
-                  // value=
-                />
-              </div> */
-
-      /* <FormField label={<FaSnapchatSquare />} name="snapchat">
-                <MaskedInput
-                  name="Snapchat"
-                  placeholder="Snapchat Link"
-                  onChange={this.handleSocialLinks}
-                />
-              </FormField>
-
-              <FormField label={<FaFacebookSquare />} name="facebook">
-                <MaskedInput
-                  name="Facebook"
-                  placeholder="Facebook Link"
-                  onChange={this.handleSocialLinks}
-                />
-              </FormField>
-
-              <FormField label={<FaTwitterSquare />} name="twitter">
-                <MaskedInput
-                  name="Twitter"
-                  placeholder="Twitter Link"
-                  onChange={this.handleSocialLinks}
-                />
-              </FormField>
-
-              <FormField label={<FaYoutubeSquare />} name="youtube">
-                <MaskedInput
-                  name="Youtube"
-                  placeholder="Youtube Link"
-                  onChange={this.handleSocialLinks}
-                />
-              </FormField>
-
-              <FormField label={<FaInstagramSquare />} name="instagram">
-                <MaskedInput
-                  name="Instagram"
-                  placeholder="Instagram Link"
-                  onChange={this.handleSocialLinks}
-                />
-              </FormField> */
-
-      /*  <Box direction="row" justify="center" margin={{ top: "medium" }}>
-                <Button type="submit" label="Submit" primary />
-              </Box>
-            </Form>
-          </Box>
-        </Box>
-      </Grommet> */
     );
   }
 }

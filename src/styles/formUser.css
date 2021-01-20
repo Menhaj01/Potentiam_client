@@ -2,8 +2,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 50%;
 }
+
+/* form {
+  margin-top: 2rem;
+  border: 1px solid;
+  width: 100%;
+} */
+
 .first-container {
   display: flex;
   font-weight: bold;

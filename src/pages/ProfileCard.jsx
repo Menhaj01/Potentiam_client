@@ -56,13 +56,16 @@ const ProfileCard = (props) => {
             </span>
           </div>
         </div>
+
         <div>
           <SocialFollow propsFromProfileCard={props.propsFromMainProfile} />
         </div>
+
         <div className="card-description">
           <h3>Description</h3>
           <p>{props.propsFromMainProfile.description}</p>
         </div>
+
         <div className="Card-btn">
           {!idToFollow.followers.includes(idFollower) && (
             <button onClick={handleFollow} className="follow-btn">
