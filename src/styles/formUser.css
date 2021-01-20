@@ -1,0 +1,124 @@
+.form-style {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.first-container {
+  display: flex;
+  font-weight: bold;
+  flex-direction: row;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  width: 40vw;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.pseudo-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px;
+}
+.pseudo-container input {
+  border-bottom: 1px solid;
+}
+.category-container {
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  width: 15vw;
+}
+.second-container {
+  display: flex;
+  border: 1px solid;
+  flex-direction: column;
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.second-container textarea {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+  width: 90%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+.form-image-container {
+  display: flex;
+  border: 1px solid;
+  flex-direction: column;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.form-image-container input {
+  padding-left: 30px;
+}
+.social-container-form {
+  display: flex;
+  border: 1px solid;
+  flex-direction: column;
+  border-radius: 20px;
+  background: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.snapchat-container input {
+  border-bottom: 1px solid;
+}
+.facebook-container input {
+  border-bottom: 1px solid;
+}
+.youtube-container input {
+  border-bottom: 1px solid;
+}
+.insteg-container input {
+  border-bottom: 1px solid;
+}
+.twitter-container input {
+  border-bottom: 1px solid;
+}
+
+.youtube {
+  color: #eb3223;
+}
+.facebook {
+  color: #4968ad;
+}
+
+.twitter {
+  color: #49a1eb;
+}
+
+.instagram {
+  color: black;
+}
+.snapchat {
+  color: rgb(252, 255, 57);
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #e66465, #a556e6);
+  color: white;
+  padding: 8px;
+  border-radius: 20px;
+  width: 10vw;
+  margin-top: 20px;
+  margin-left: 100px;
+}

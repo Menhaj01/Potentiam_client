@@ -1,6 +1,7 @@
 import React from "react";
 import { withUser } from "../components/Auth/withUser";
-
+import FormUser from "../components/Forms/FormUser";
+import "../styles/formUser.css";
 const ResumeDashboard = (props) => {
   const { context } = props;
 
@@ -13,6 +14,7 @@ const ResumeDashboard = (props) => {
           <p>Welcome Back</p>
         </div>
       </header>
+      <FormUser />
     </div>
   );
 };

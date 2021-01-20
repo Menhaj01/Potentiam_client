@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import "../../styles/formUser.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faYoutube,
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faSnapchat,
+} from "@fortawesome/free-brands-svg-icons";
 import {
   Box,
   Button,
@@ -129,7 +138,99 @@ class FormUser extends Component {
   render() {
     // console.log(this.state.previousValue);
     return (
-      <Grommet id="userFormContainer" full theme={grommet}>
+      <div className="form-style">
+        <form onSubmit={this.handleSubmit}>
+          <div className="first-container">
+            <div className="pseudo-container">
+              <label htmlFor="pseudo" label="Psuedo" name="pseudo">
+                pseudo
+              </label>
+              <input id="pseudo" name="pseudo" onChange={this.handleChange} />
+            </div>
+            <div className="category-container">
+              <label htmlFor="category" label="Category" name="category">
+                category
+              </label>
+              <select
+                id="category"
+                name="category"
+                options={this.state.categories}
+                labelKey={(option) => option.name}
+                onChange={this.handleSelect}
+              />
+            </div>
+          </div>
+          <div className="second-container">
+            <label htmlFor="description" label="Description" name="description">
+              description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-image-container">
+            <label className="form-image" htmlFor="image">
+              Pick your Picture
+            </label>
+            <input ref={this.imageRef} id="image" name="image" type="file" />
+          </div>
+          <div className="social-container-form">
+            <div className="snapchat-container">
+              <label label={<FaSnapchatSquare />} name="snapchat"></label>
+
+              <FontAwesomeIcon
+                className="snapchat"
+                icon={faSnapchat}
+                size="2x"
+              />
+              <input name="Snapchat" onChange={this.handleSocialLinks} />
+            </div>
+            <div className="facebook-container">
+              <label label={<FaFacebookSquare />} name="facebook"></label>
+              <FontAwesomeIcon
+                className="facebook social"
+                icon={faFacebook}
+                size="2x"
+              />
+              <input name="Facebook" onChange={this.handleSocialLinks} />
+            </div>
+            <div className="twitter-container">
+              <label label={<FaTwitterSquare />} name="twitter"></label>
+              <FontAwesomeIcon
+                className="twitter social"
+                icon={faTwitter}
+                size="2x"
+              />
+              <input name="Twitter" onChange={this.handleSocialLinks} />
+            </div>
+            <div className="youtube-container">
+              <label label={<FaYoutubeSquare />} name="youtube"></label>
+              <FontAwesomeIcon
+                className="youtube social"
+                icon={faYoutube}
+                size="2x"
+              />
+              <input name="Youtube" onChange={this.handleSocialLinks} />
+            </div>
+            <div className="insteg-container">
+              <label label={<FaInstagramSquare />} name="instagram"></label>
+              <FontAwesomeIcon
+                className="instagram social"
+                icon={faInstagram}
+                size="2x"
+              />
+              <input name="Instagram" onChange={this.handleSocialLinks} />
+            </div>
+          </div>
+          <button className="submit-btn" type="submit" label="Submit">
+            submit
+          </button>
+        </form>
+      </div>
+
+      /*  <Grommet id="userFormContainer" full theme={grommet}>
         <Box fill align="center" justify="center">
           <Box width="xlarge">
             <Form onSubmit={this.handleSubmit}>
@@ -170,9 +271,9 @@ class FormUser extends Component {
                 name="image"
               >
                 Changer profile image
-              </UploadWidget> */}
+              </UploadWidget> */
 
-              <div className="form-image-container">
+      /*  <div className="form-image-container">
                 <label className="form-image" htmlFor="image">
                   Pick your Picture
                 </label>
@@ -183,9 +284,9 @@ class FormUser extends Component {
                   type="file"
                   // value=
                 />
-              </div>
+              </div> */
 
-              <FormField label={<FaSnapchatSquare />} name="snapchat">
+      /* <FormField label={<FaSnapchatSquare />} name="snapchat">
                 <MaskedInput
                   name="Snapchat"
                   placeholder="Snapchat Link"
@@ -223,15 +324,15 @@ class FormUser extends Component {
                   placeholder="Instagram Link"
                   onChange={this.handleSocialLinks}
                 />
-              </FormField>
+              </FormField> */
 
-              <Box direction="row" justify="center" margin={{ top: "medium" }}>
+      /*  <Box direction="row" justify="center" margin={{ top: "medium" }}>
                 <Button type="submit" label="Submit" primary />
               </Box>
             </Form>
           </Box>
         </Box>
-      </Grommet>
+      </Grommet> */
     );
   }
 }
