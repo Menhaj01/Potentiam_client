@@ -57,11 +57,12 @@ class FormUser extends Component {
   };
 
   handleSelect = (event) => {
-    const value = event.option;
-    // console.log(value.name);
+    var index = event.nativeEvent.target.selectedIndex;
+    const name = event.nativeEvent.target[index].text;
+    
     this.setState({
-      id_category: value._id,
-      name_category: value.name,
+      id_category: event.target.value,
+      name_category: name,
     });
   };
 
@@ -142,10 +143,16 @@ class FormUser extends Component {
               <select
                 id="category"
                 name="category"
-                options={this.state.categories}
-                labelKey={(option) => option.name}
                 onChange={this.handleSelect}
-              />
+                // options={this.state.categories}
+                // labelKey={(option) => option.name}
+              >
+                {this.state.categories.map((category)=>{
+                  return (
+                    <option value={category._id}>{category.name}</option> 
+                  )
+                })}
+              </select>
             </div>
           </div>
           <div className="second-container">

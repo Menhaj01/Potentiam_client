@@ -8,10 +8,10 @@ const ResumeDashboard = (props) => {
   return (
     <div id="resumeContainer">
       <header>
-        <img src={context.user && context.user.image} alt="" />
+        {/* <img src={context.user && context.user.image} alt="" /> */}
         <div className="textHeader">
-          <p>Hi {context.user && context.user.pseudo}</p>
-          <p>Welcome Back</p>
+          {/* <p>Hi {context.user && context.user.pseudo}</p> */}
+          <p>Welcome Back {context.user && context.user.pseudo} !</p>
         </div>
       </header>
       <FormUser />

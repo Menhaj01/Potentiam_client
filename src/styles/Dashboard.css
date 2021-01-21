@@ -49,7 +49,7 @@ a.socials:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(27, 27, 27, 0.733);
   border-radius: 30px 30px 0 30px;
   position: absolute;
   top: 0;
@@ -58,12 +58,15 @@ a.socials:hover {
 }
 
 .sideBar-ul {
-  background-color: #e49b9b;
   padding: 10px;
-  border-radius: 20px 0 0 20px;
+  border-radius: 30px 0 0 30px;
+  background-color:rgb(189, 176,180);
+  color: rgb(60, 58, 61);
+  font-weight: bold;
+  font-size: 20px;
 }
 .sideBar-ul li {
-  padding: 10px 0;
+  padding: 80px 0;
   transform: rotate(-90deg);
 }
 
@@ -75,7 +78,7 @@ a.socials:hover {
   display: grid;
   grid-template-columns: 2.5fr 0.8fr 1.5fr;
   grid-gap: 10px;
-  background: linear-gradient(90deg, #e49b9b, #af8dca);
+  background: linear-gradient(90deg, #beb3b3, #af8dca);
   /* z-index: 2; */
 }
 
@@ -84,7 +87,7 @@ a.socials:hover {
   padding: 10px 0 0 50px;
   border-radius: 30px 0 0 30px;
   overflow: hidden;
-  border: 10px solid;
+  /* border: 10px solid; */
   /* display: flex;
   text-align: center; */
 }
@@ -137,7 +140,7 @@ a.socials:hover {
   flex-direction: column;
   align-items: center;
   border-radius: 30px 30px 30px 0;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(27, 27, 27, 0.733);
 }
 
 .sect-three-mainImg {
@@ -221,6 +224,9 @@ a.socials:hover {
 #resumeContainer header .textHeader {
   text-align: left;
 }
-#resumeContainer header .textHeader p:nth-child(2) {
+#resumeContainer header .textHeader p {
   margin-top: 20px;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
 }
