@@ -70,13 +70,16 @@ class MainProfile extends React.Component {
     })
   };
 
+  handleCategory = (id) => {
+    this.props.history.push(`/category/${id}`);
+  };
 
   render() {
     // if (!this.state.userToDisplay) {
     if (!this.state.userToDisplay || !this.state.usersFromDash) {
       return <p>Page is loading ...</p>;
     }
-    // console.log(this.state.usersFromDash);
+    console.log(this.state.usersFromDash);
     // console.log(this.state.userToDisplay);
     return (
       <div className="main-profile">
@@ -93,7 +96,7 @@ class MainProfile extends React.Component {
             {Object.keys(this.state.usersFromDash).map((categoryName) => {
               return (
                 <div>
-                  <span>{categoryName}</span>
+                  <span onClick={() => this.handleCategory(this.state.usersFromDash[categoryName][0].id_category._id)}>{categoryName}</span>
 
 
                   {this.state.usersFromDash[categoryName].map((user) => {

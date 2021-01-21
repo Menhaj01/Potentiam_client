@@ -54,11 +54,11 @@ class CategoryPage extends React.Component {
   };
 
   render() {
-  
+  console.log(this.props)
     return (
       <div className="category-style">
         <div className="img--header-category">
-          <h1>Improve your</h1>
+          <h1>Improve your {this.props.match.par}</h1>
           <SearchBar searchResult={this.handleSearchResult} />
         </div>
 
