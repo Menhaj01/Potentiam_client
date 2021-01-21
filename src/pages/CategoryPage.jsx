@@ -6,10 +6,11 @@ import "../styles/categoryPage.css";
 class CategoryPage extends React.Component {
   state = {
     usersInCategory: [],
+    sortUp: true,
   };
 
   componentDidMount() {
-    apiHandler.getUsersByCategory(this.props.match.params.id).then((data) => {
+    apiHandler.getUsersByCategory(this.props.match.params.id, this.state.sortName).then((data) => {
       this.setState({
         usersInCategory: data,
       });
@@ -17,11 +18,28 @@ class CategoryPage extends React.Component {
     });
   }
 
+
+  handleSort = () => {
+    this.setState({
+      usersInCategory: [...this.state.usersInCategory].sort((a, b) => {
+        if (this.state.sortUp){
+          return  a.pseudo.localeCompare(b.pseudo);
+        } else {
+          return  b.pseudo.localeCompare(a.pseudo);
+        }
+      }
+      ),
+      sortUp: !this.state.sortUp
+    });
+  };
+
+
   handleClick = (id) => {
     this.props.history.push(`/mainProfile/${id}`);
   };
 
   render() {
+  
     return (
       <div className="category-style">
         <div className="img--header-category">
@@ -31,7 +49,16 @@ class CategoryPage extends React.Component {
 
         <div className="btn-style">
           <button className="btn-filter">Filter by like ⇩</button>
-          <button className="btn-filter">Recent Influencers ⇩</button>
+
+
+
+          <button className="btn-filter" onClick={this.handleSort}>
+            Recent Influencers 
+            {this.state.sortUp 
+            ?"⟱"
+            : "⟰"
+            }
+          </button>
         </div>
         <div className="category-wrap">
           {this.state.usersInCategory.map((each) => (
