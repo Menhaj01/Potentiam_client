@@ -6,7 +6,8 @@ import "../styles/categoryPage.css";
 class CategoryPage extends React.Component {
   state = {
     usersInCategory: [],
-    sortUp: true,
+    sortName: true,
+    sortFollower: true,
   };
 
   componentDidMount() {
@@ -22,14 +23,28 @@ class CategoryPage extends React.Component {
   handleSort = () => {
     this.setState({
       usersInCategory: [...this.state.usersInCategory].sort((a, b) => {
-        if (this.state.sortUp){
+        if (this.state.sortName){
           return  a.pseudo.localeCompare(b.pseudo);
         } else {
           return  b.pseudo.localeCompare(a.pseudo);
         }
       }
       ),
-      sortUp: !this.state.sortUp
+      sortName: !this.state.sortName
+    });
+  };
+
+  handleSortFollower = () => {
+    this.setState({
+      usersInCategory: [...this.state.usersInCategory].sort((a, b) => {
+        if (this.state.sortFollower){
+          return  a.followers.length - b.followers.length;
+        } else {
+          return  b.followers.length - a.followers.length;
+        }
+      }
+      ),
+      sortFollower: !this.state.sortFollower
     });
   };
 
@@ -48,13 +63,17 @@ class CategoryPage extends React.Component {
         </div>
 
         <div className="btn-style">
-          <button className="btn-filter">Filter by like ⇩</button>
+          <button className="btn-filter" onClick={this.handleSortFollower}>Sort by followers 
+           {this.state.sortFollower
+            ?"⟱"
+            : "⟰"
+            }</button>
 
 
 
           <button className="btn-filter" onClick={this.handleSort}>
-            Recent Influencers 
-            {this.state.sortUp 
+            Sort by name
+            {this.state.sortName
             ?"⟱"
             : "⟰"
             }
@@ -69,6 +88,7 @@ class CategoryPage extends React.Component {
             >
               <img className="category-user-img" src={each.image} alt="" />
               <p>{each.pseudo}</p>
+              <p>{each.followers.length}</p>
             </div>
           ))}
         </div>

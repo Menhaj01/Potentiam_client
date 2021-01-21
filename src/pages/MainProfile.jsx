@@ -9,26 +9,38 @@ import { withUser } from "../components/Auth/withUser";
 class MainProfile extends React.Component {
   state = {
     userToDisplay: null,
-    usersFromDash: [],
+    usersFromDash: {},
   };
 
   componentDidMount() {
     const userConnected = this.props.context.user;
 
     apiHandler.getOneUser(this.props.match.params.id).then((data) => {
+      const usersFromDash = {}
+      
+      data.followingToShow.forEach((user) => {
+        if (!usersFromDash[user.id_category.name]) {
+          usersFromDash[user.id_category.name] = [];
+        }
+        usersFromDash[user.id_category.name].push(user);
+      });
+
+      console.log(usersFromDash);
+
       this.setState({
         userToDisplay: data,
+        usersFromDash: usersFromDash
       });
     });
 
-    userConnected.followingToShow.length > 0 &&
-      userConnected.followingToShow.map((follow) => {
-        return apiHandler.getOneUser(follow).then((data) => {
-          this.setState({
-            usersFromDash: [...this.state.usersFromDash, data],
-          });
-        });
-      });
+    // userConnected.followingToShow.length > 0 &&
+    //   userConnected.followingToShow.map((follow) => {
+    //     return apiHandler.getOneUser(follow).then((data) => {
+    //       this.setState({
+    //         usersFromDash: [...this.state.usersFromDash, data],
+    //       });
+    //     });
+    //   });
 
     // } else console.log("No following added");
   }
@@ -52,7 +64,6 @@ class MainProfile extends React.Component {
     if (!this.state.userToDisplay || !this.state.usersFromDash) {
       return <p>Page is loading ...</p>;
     }
-    // console.log(this.state.userToDisplay);
     // console.log(this.state.usersFromDash);
     // console.log(this.state.userToDisplay);
     return (
@@ -67,16 +78,27 @@ class MainProfile extends React.Component {
         <div className="main-container">
           <div className="title">
             <h1>User(s) recommended by {this.state.userToDisplay.pseudo}</h1>
-            {this.state.usersFromDash.map((user) => {
+            {Object.keys(this.state.usersFromDash).map((categoryName) => {
               return (
-                <div key={user._id} className="suggestion-container">
-                  <span>{user.id_category}</span>
-                  <div className="food-img">
-                    <img src={user.image} alt="" />
-                    <p>{user.description}</p>
-                  </div>
+                <div>
+                  <span>{categoryName}</span>
+
+                  
+                  {this.state.usersFromDash[categoryName].map((user) => {
+                  return (
+                    <div key={user._id} className="suggestion-container">
+                      
+                      <div className="food-img">
+                        <img src={user.image} alt="" />
+                      </div>
+                    </div>
+                  );
+                })}
                 </div>
+
+                
               );
+             
             })}
           </div>
         </div>
