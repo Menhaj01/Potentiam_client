@@ -38,7 +38,7 @@ class DashboardResume extends React.Component {
 
   handleClick = (following) => {
     this.setState({
-      myFollowing: [...this.state.followingToSend, following],
+      followingToSend: [...this.state.followingToSend, following],
     });
   };
 

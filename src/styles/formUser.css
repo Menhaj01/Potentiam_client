@@ -32,7 +32,6 @@
   box-shadow: white 10px 5px 15px;
 }
 
-
 .pseudo-container input {
   border-radius: 20px;
   color: black;
@@ -53,7 +52,7 @@
   justify-content: center;
 }
 
-.category-container select{
+.category-container select {
   color: black;
   background: linear-gradient(90deg, #bba9a900, #af8dca00);
   align-items: center;
@@ -117,24 +116,14 @@
   align-items: center;
   background: linear-gradient(90deg, #b9b0b0, #af8dca);
 }
-.snapchat-container input {
+.social-container-form input {
   border-bottom: 1px solid;
-}
-.facebook-container input {
-  border-bottom: 1px solid;
-}
-.youtube-container input {
-  border-bottom: 1px solid;
-}
-.insteg-container input {
-  border-bottom: 1px solid;
-}
-.twitter-container input {
-  border-bottom: 1px solid;
+  padding: 0 0.5rem;
 }
 
 .youtube {
   color: #eb3223;
+  margin-right: 0.7rem;
 }
 .facebook {
   color: #4968ad;
@@ -149,6 +138,10 @@
 }
 .snapchat {
   color: rgb(252, 255, 57);
+}
+
+.social {
+  margin-right: 1rem;
 }
 
 .submit-btn {

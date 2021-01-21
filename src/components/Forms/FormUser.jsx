@@ -59,7 +59,7 @@ class FormUser extends Component {
   handleSelect = (event) => {
     var index = event.nativeEvent.target.selectedIndex;
     const name = event.nativeEvent.target[index].text;
-    
+
     this.setState({
       id_category: event.target.value,
       name_category: name,
@@ -144,13 +144,12 @@ class FormUser extends Component {
                 id="category"
                 name="category"
                 onChange={this.handleSelect}
-                // options={this.state.categories}
-                // labelKey={(option) => option.name}
               >
-                {this.state.categories.map((category)=>{
-                  return (
-                    <option value={category._id}>{category.name}</option> 
-                  )
+                <option disabled selected>
+                  Select your category
+                </option>
+                {this.state.categories.map((category) => {
+                  return <option value={category._id}>{category.name}</option>;
                 })}
               </select>
             </div>
@@ -176,7 +175,7 @@ class FormUser extends Component {
               <label label={<FaSnapchatSquare />} name="snapchat"></label>
 
               <FontAwesomeIcon
-                className="snapchat"
+                className="snapchat social"
                 icon={faSnapchat}
                 size="2x"
               />
@@ -203,7 +202,7 @@ class FormUser extends Component {
             <div className="youtube-container">
               <label label={<FaYoutubeSquare />} name="youtube"></label>
               <FontAwesomeIcon
-                className="youtube social"
+                className="youtube "
                 icon={faYoutube}
                 size="2x"
               />
