@@ -65,11 +65,11 @@ export default {
       .catch(errorHandler);
   },
 
-  getUsersByCategory(id) {
+  getUsersByCategory(id, sortName) {
     return (
       service
         // request query to send information on a get request axios
-        .get(`/api/user/all/bycategory?id_category=${id}`)
+        .get(`/api/user/all/bycategory?id_category=${id}&sort_name=${sortName}`)
         // .get("/api/user/all/bycategory", { params: { id_category: id } })
         .then((res) => res.data)
         .catch(errorHandler)
