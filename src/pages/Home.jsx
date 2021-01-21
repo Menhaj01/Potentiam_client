@@ -1,4 +1,5 @@
 import React from "react";
+import { link } from "react-router-dom";
 import "../styles/home.css";
 import SearchBar from "../components/Search/SearchBar";
 import axios from "axios";
@@ -14,8 +15,11 @@ class Home extends React.Component {
     });
   };
 
-  handleCategory = (id) => {
-    this.props.history.push(`/category/${id}`);
+  handleCategory = (category) => {
+    this.props.history.push({
+      pathname: `/category/${category._id}`,
+      data: category,
+    });
   };
 
   componentDidMount() {
@@ -34,14 +38,30 @@ class Home extends React.Component {
           <SearchBar searchResult={this.handleSearchResult} />
         </div>
         <div className="categories-home">
-          {this.state.categories.map((category) => (
-            <button
-              key={category._id}
-              onClick={() => this.handleCategory(category._id)}
-            >
-              {category.name}
-            </button>
-          ))}
+          {this.state.categories.map((category) => {
+            // {
+            //   this.props.history.push({
+            //     pathname: `{/category/${category._id}}`,
+            //     data: category,
+            //   });
+            // }
+            // {
+            //   <link
+            //     to={{
+            //       pathname: `{/category/${category._id}}`,
+            //       data: category,
+            //     }}
+            //   />;
+            // }
+            return (
+              <button
+                key={category._id}
+                onClick={() => this.handleCategory(category)}
+              >
+                {category.name}
+              </button>
+            );
+          })}
         </div>
       </div>
     );

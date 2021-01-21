@@ -11,72 +11,67 @@ class CategoryPage extends React.Component {
   };
 
   componentDidMount() {
-    apiHandler.getUsersByCategory(this.props.match.params.id, this.state.sortName).then((data) => {
-      this.setState({
-        usersInCategory: data,
+    apiHandler
+      .getUsersByCategory(this.props.match.params.id, this.state.sortName)
+      .then((data) => {
+        this.setState({
+          usersInCategory: data,
+        });
+        // console.log(this.state.usersInCategory);
       });
-      // console.log(this.state.usersInCategory);
-    });
   }
-
 
   handleSort = () => {
     this.setState({
       usersInCategory: [...this.state.usersInCategory].sort((a, b) => {
-        if (this.state.sortName){
-          return  a.pseudo.localeCompare(b.pseudo);
+        if (this.state.sortName) {
+          return a.pseudo.localeCompare(b.pseudo);
         } else {
-          return  b.pseudo.localeCompare(a.pseudo);
+          return b.pseudo.localeCompare(a.pseudo);
         }
-      }
-      ),
-      sortName: !this.state.sortName
+      }),
+      sortName: !this.state.sortName,
     });
   };
 
   handleSortFollower = () => {
     this.setState({
       usersInCategory: [...this.state.usersInCategory].sort((a, b) => {
-        if (this.state.sortFollower){
-          return  a.followers.length - b.followers.length;
+        if (this.state.sortFollower) {
+          return a.followers.length - b.followers.length;
         } else {
-          return  b.followers.length - a.followers.length;
+          return b.followers.length - a.followers.length;
         }
-      }
-      ),
-      sortFollower: !this.state.sortFollower
+      }),
+      sortFollower: !this.state.sortFollower,
     });
   };
-
 
   handleClick = (id) => {
     this.props.history.push(`/mainProfile/${id}`);
   };
 
   render() {
-  console.log(this.props)
+    if (!this.props.location.data) {
+      return <p>Loading page ...</p>;
+    }
+    // console.log(this.props.location.data);
     return (
       <div className="category-style">
         <div className="img--header-category">
-          <h1>Improve your {this.props.match.par}</h1>
+          <h1>Improve your {this.props.location.data.name}</h1>
           <SearchBar searchResult={this.handleSearchResult} />
         </div>
 
         <div className="btn-style">
-          <button className="btn-filter" onClick={this.handleSortFollower}>Sort by followers 
-           {this.state.sortFollower
-            ?"⟱"
-            : "⟰"
-            }</button>
-
-
+          <button className="btn-filter" onClick={this.handleSortFollower}>
+            Sort by followers
+            {this.state.sortFollower ? "⟱" : "⟰"}
+          </button>
 
           <button className="btn-filter" onClick={this.handleSort}>
             Sort by name
-            {this.state.sortName
-            ?"⟱"
-            : "⟰"
-            }
+            {this.state.sortName ? "⟱" : "⟰"}
           </button>
         </div>
         <div className="category-wrap">
