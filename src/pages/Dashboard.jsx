@@ -26,9 +26,15 @@ class DashboardResume extends React.Component {
     myFollowing: [],
     followingToShow: [],
     topThreeUser: [],
+    trends: [],
   };
 
   componentDidMount() {
+    apiHandler.getTrends().then((apiResponse) => {
+      this.setState({
+        trends: apiResponse,
+      })
+    })
     const currentUser = this.props.context.user;
     // console.log(user);
     currentUser.following.map((follow) => {
@@ -65,6 +71,10 @@ class DashboardResume extends React.Component {
     });
   };
 
+  handleClickProfile = (id) => {
+    this.props.history.push(`/mainProfile/${id}`);
+  };
+
   render() {
     const currentUser = this.props.context.user;
 
@@ -92,24 +102,14 @@ class DashboardResume extends React.Component {
             <div className="popularUser-container">
               <div className="popularUser-filtered">
                 <h2>Top posts</h2>
-                <div className="top-popularUsers">
-                  <img
-                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                {this.state.trends.map((user) => {
+                  return (<div className="top-popularUsers">
+                  <img onClick={() => this.handleClickProfile(user._id)}
+                    src={user.image}
                     alt=""
                   />
-                </div>
-                <div className="top-popularUsers">
-                  <img
-                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    alt=""
-                  />
-                </div>
-                <div className="top-popularUsers">
-                  <img
-                    src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    alt=""
-                  />
-                </div>
+                </div> )
+                })}
               </div>
               <div className="popularUser-socialLinks">
                 <h2>Linked accounts</h2>

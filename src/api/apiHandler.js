@@ -118,4 +118,10 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+  getTrends() {
+    return service
+      .get(`/api/user/trends`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };

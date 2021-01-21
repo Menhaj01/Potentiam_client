@@ -64,7 +64,7 @@ class FormSignin extends Component {
                 <input type="email" id="email" name="email" />
               </div>
               <div className="sign-password">
-                <label htmlFor="password">Create a password</label>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" />
               </div>
               <button className="btn-sbm" type="submit">

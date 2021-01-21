@@ -59,6 +59,18 @@ class MainProfile extends React.Component {
     });
   };
 
+  handleClick = (user) => {
+    // this.props.history.push(`/mainProfile/${id}`);
+
+    apiHandler.getOneUser(user._id).then((apiResponse) => {
+      this.setState({
+        userToDisplay: apiResponse,
+        usersFromDash: apiResponse.followingToShow,
+      })
+    })
+  };
+
+
   render() {
     // if (!this.state.userToDisplay) {
     if (!this.state.userToDisplay || !this.state.usersFromDash) {
@@ -83,13 +95,13 @@ class MainProfile extends React.Component {
                 <div>
                   <span>{categoryName}</span>
 
-                  
+
                   {this.state.usersFromDash[categoryName].map((user) => {
                   return (
                     <div key={user._id} className="suggestion-container">
                       
                       <div className="food-img">
-                        <img src={user.image} alt="" />
+                        <img onClick={() => this.handleClick(user)} src={user.image} alt="" />
                       </div>
                     </div>
                   );
