@@ -3,16 +3,16 @@ import { UserContext } from "../Auth/UserContext";
 import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
 import "../../styles/FormSign.css";
-import {
-  Input,
-  Stack,
-  Icon,
-  InputGroup,
-  FormControl,
-  FormLabel,
-  Button,
-  InputLeftElement,
-} from "@chakra-ui/react";
+// import {
+//   Input,
+//   Stack,
+//   Icon,
+//   InputGroup,
+//   FormControl,
+//   FormLabel,
+//   Button,
+//   InputLeftElement,
+// } from "@chakra-ui/react";
 
 class FormSignin extends Component {
   static contextType = UserContext;
@@ -54,27 +54,20 @@ class FormSignin extends Component {
         <div className="Form-Sign">
           <div className="div-sign">
             <h1>Sign in</h1>
-            <form className="form-sign" onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <form
+              className="form-sign"
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+            >
               <div className="sign-password">
-              <label>Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-              />
+                <label>Email address</label>
+                <input type="email" id="email" name="email" />
               </div>
               <div className="sign-password">
-              <label htmlFor="password">Create a password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-              />
+                <label htmlFor="password">Create a password</label>
+                <input type="password" id="password" name="password" />
               </div>
-              <button
-              className="btn-sbm"
-                type="submit"
-              >
+              <button className="btn-sbm" type="submit">
                 Let's go in
               </button>
             </form>

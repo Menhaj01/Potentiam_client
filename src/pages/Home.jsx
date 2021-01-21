@@ -35,7 +35,10 @@ class Home extends React.Component {
         </div>
         <div className="categories-home">
           {this.state.categories.map((category) => (
-            <button onClick={() => this.handleCategory(category._id)}>
+            <button
+              key={category._id}
+              onClick={() => this.handleCategory(category._id)}
+            >
               {category.name}
             </button>
           ))}

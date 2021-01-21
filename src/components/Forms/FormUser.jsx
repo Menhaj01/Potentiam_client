@@ -145,11 +145,12 @@ class FormUser extends Component {
                 name="category"
                 onChange={this.handleSelect}
               >
-                <option disabled selected>
-                  Select your category
-                </option>
-                {this.state.categories.map((category) => {
-                  return <option value={category._id}>{category.name}</option>;
+                {this.state.categories.map((category, i) => {
+                  return (
+                    <option key={i + "key"} value={category._id}>
+                      {category.name}
+                    </option>
+                  );
                 })}
               </select>
             </div>

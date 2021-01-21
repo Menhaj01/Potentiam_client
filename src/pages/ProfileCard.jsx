@@ -2,12 +2,14 @@ import React from "react";
 import "../styles/profile.css";
 import SocialFollow from "../components/SocialFollow";
 import { withUser } from "../components/Auth/withUser";
-import apiHandler from "../api/apiHandler";
+// import apiHandler from "../api/apiHandler";
 
 const ProfileCard = (props) => {
   //Can reach connected user with props.context.user
   //Can reach current influencer with props.propsFromMainProfile
   // console.log(props.context);
+
+  // const [value, setValue] = useState(0);
 
   const idFollower = props.context.user._id;
   const idToFollow = props.propsFromMainProfile;
@@ -18,19 +20,6 @@ const ProfileCard = (props) => {
   if (!props.propsFromMainProfile) {
     return <p>Page is loading ...</p>;
   }
-
-  const handleFollow = () => {
-    // console.log(props.propsFromMainProfile);
-    apiHandler.followUser(idFollower, idToFollow).then((data) => {
-      props.context.setUser(data);
-    });
-  };
-
-  const handleUnfollow = () => {
-    apiHandler.unfollowUser(idFollower, idToFollow).then((data) => {
-      props.context.setUser(data);
-    });
-  };
 
   return (
     <div className="Card">
@@ -68,12 +57,18 @@ const ProfileCard = (props) => {
 
         <div className="Card-btn">
           {!idToFollow.followers.includes(idFollower) && (
-            <button onClick={handleFollow} className="follow-btn">
+            <button
+              onClick={() => props.handleFollow(idFollower, idToFollow)}
+              className="follow-btn"
+            >
               Follow
             </button>
           )}
           {idToFollow.followers.includes(idFollower) && (
-            <button onClick={handleUnfollow} className="unfollow-btn">
+            <button
+              onClick={() => props.handleUnfollow(idFollower, idToFollow)}
+              className="unfollow-btn"
+            >
               Unfollow
             </button>
           )}

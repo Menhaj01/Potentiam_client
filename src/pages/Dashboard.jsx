@@ -1,8 +1,8 @@
 import React from "react";
-import FormUser from "../components/Forms/FormUser";
-import SocialFollow from "../components/SocialFollow";
+// import FormUser from "../components/Forms/FormUser";
+// import SocialFollow from "../components/SocialFollow";
 import ResumeDashboard from "../components/ResumeDashboard";
-import SettingDashboard from "../components/SettingDashboard";
+// import SettingDashboard from "../components/SettingDashboard";
 import {
   faYoutube,
   faFacebook,
@@ -14,38 +14,65 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/Dashboard.css";
 // import SidebarDashboad from "../components/Sidebar_Dashboad";
 import { withUser } from "../components/Auth/withUser";
+// import { UserContext } from "../components/Auth/UserContext";
 import apiHandler from "../api/apiHandler";
 
 // const DashboardResume = (props) => {
 
 class DashboardResume extends React.Component {
+  // static contextType = UserContext;
+
   state = {
     myFollowing: [],
+    followingToShow: [],
     topThreeUser: [],
-    followingToSend: [],
   };
 
   componentDidMount() {
-    this.props.context.user.following.map((follow) => {
+    const currentUser = this.props.context.user;
+    // console.log(user);
+    currentUser.following.map((follow) => {
       // console.log(follow);
-      apiHandler.getOneUser(follow).then((apiResponse) => {
+      return apiHandler.getOneUser(follow).then((apiResponse) => {
         this.setState({
           myFollowing: [...this.state.myFollowing, apiResponse],
         });
       });
     });
+
+    this.setState({
+      followingToShow: currentUser.followingToShow,
+    });
   }
 
-  handleClick = (following) => {
-    this.setState({
-      followingToSend: [...this.state.followingToSend, following],
+  handleClickAdd = (following) => {
+    apiHandler.showFollowing(following).then((apiResponse) => {
+      this.setState({
+        followingToShow: apiResponse.followingToShow,
+      });
+      this.props.context.setUser(apiResponse);
+    });
+  };
+
+  handleClickRmv = (following) => {
+    apiHandler.unshowFollowing(following).then((apiResponse) => {
+      this.setState({
+        followingToShow: apiResponse.followingToShow,
+      });
+      this.props.context.setUser(apiResponse);
+      // this.props.context.setUser();
+      // console.log(apiResponse);
     });
   };
 
   render() {
     const currentUser = this.props.context.user;
+
+    // console.log(this.state.followingToShow);
+    // console.log(this.state.myFollowing);
     // console.log(this.state.myFollowing.length);
-    console.log(this.state.followingToSend);
+    // console.log(this.state.followingToSend);
+    // let displayBtn = false;
     return (
       <div id="general-container">
         <header className="sideBar">
@@ -143,10 +170,7 @@ class DashboardResume extends React.Component {
           {/* **********SECTION 3************ */}
           <div className="dashboard-sect-three sect-commun">
             <div className="sect-three-mainImg">
-              <img
-                src="https://images.pexels.com/photos/5639625/pexels-photo-5639625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                alt=""
-              />
+              <img src={this.props.context.user.image} alt="" />
             </div>
             <div className="following-container">
               {this.state.myFollowing.length > 0 &&
@@ -160,22 +184,29 @@ class DashboardResume extends React.Component {
                         <h3>{item.pseudo}</h3>
                       </div>
                       <div>
-                        <button
-                          onClick={() => this.handleClick(item)}
-                          className="myFollowing-addBtn"
-                        >
-                          Add
-                        </button>
-                        <button
-                          onClick={this.handleClick}
-                          className="myFollowing-rmvBtn"
-                        >
-                          Remove
-                        </button>
+                        {this.state.followingToShow.includes(item._id) && (
+                          <button
+                            onClick={() => this.handleClickRmv(item)}
+                            className="myFollowing-rmvBtn"
+                          >
+                            Remove
+                          </button>
+                        )}
+                        {!this.state.followingToShow.includes(item._id) && (
+                          <button
+                            onClick={() => this.handleClickAdd(item)}
+                            className="myFollowing-addBtn"
+                          >
+                            Add
+                          </button>
+                        )}
                       </div>
                     </div>
                   );
                 })}
+              {this.state.myFollowing.length === 0 && (
+                <p className="noFollowing">You don't following anyone</p>
+              )}
             </div>
           </div>
         </section>

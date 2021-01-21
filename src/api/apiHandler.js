@@ -83,7 +83,16 @@ export default {
       .catch(errorHandler);
   },
 
+  // followUser(idFollower, idToFollow,isFollow) {
+  //   const follow = isFollow ? "follow" : "unfollow"
+  //   return service
+  //     .patch(`/api/user/${follow}/${idFollower}`, idToFollow)
+  //     .then((res) => res.data)
+  //     .catch(errorHandler);
+  // },
+
   followUser(idFollower, idToFollow) {
+    // const follow = isFollow ? "follow" : "unfollow"
     return service
       .patch(`/api/user/follow/${idFollower}`, idToFollow)
       .then((res) => res.data)
@@ -93,6 +102,19 @@ export default {
   unfollowUser(idFollower, idToFollow) {
     return service
       .patch(`/api/user/unfollow/${idFollower}`, idToFollow)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  showFollowing(following) {
+    return service
+      .patch(`/api/user/me/followingToShow`, following)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+  unshowFollowing(unfollowing) {
+    return service
+      .patch(`/api/user/me/followingToUnshow`, unfollowing)
       .then((res) => res.data)
       .catch(errorHandler);
   },

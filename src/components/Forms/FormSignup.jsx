@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
-import {
-  Input,
-  Stack,
-  Icon,
-  InputGroup,
-  FormControl,
-  FormLabel,
-  Button,
-  InputLeftElement,
-} from "@chakra-ui/react";
-import  "../../styles/FormSign.css";
+// import {
+//   Input,
+//   Stack,
+//   Icon,
+//   InputGroup,
+//   FormControl,
+//   FormLabel,
+//   Button,
+//   InputLeftElement,
+// } from "@chakra-ui/react";
+import "../../styles/FormSign.css";
 
 class FormSignup extends Component {
   static contextType = UserContext;
@@ -50,12 +50,12 @@ class FormSignup extends Component {
 
     return (
       <div className="backgroundCOlor--sign">
-      <div className="Form-Sign">
-        <div className="div-sign">
-        <h1>Sign up</h1>
-        <form className="form-sign" onSubmit={this.handleSubmit}>
-        <div className="sign-password">
-            <label htmlFor="pseudo">Pseudo</label>
+        <div className="Form-Sign">
+          <div className="div-sign">
+            <h1>Sign up</h1>
+            <form className="form-sign" onSubmit={this.handleSubmit}>
+              <div className="sign-password">
+                <label htmlFor="pseudo">Pseudo</label>
                 <input
                   onChange={this.handleChange}
                   value={this.state.pseudo}
@@ -63,9 +63,9 @@ class FormSignup extends Component {
                   id="peusdo"
                   name="pseudo"
                 />
-            </div>
-            <div className="sign-password">
-            <label htmlFor="email">Email address</label>
+              </div>
+              <div className="sign-password">
+                <label htmlFor="email">Email address</label>
                 <input
                   onChange={this.handleChange}
                   value={this.state.email}
@@ -73,9 +73,9 @@ class FormSignup extends Component {
                   id="email"
                   name="email"
                 />
-                </div>
-                <div className="sign-password">
-              <label htmlFor="password">Create a password</label>
+              </div>
+              <div className="sign-password">
+                <label htmlFor="password">Create a password</label>
                 <input
                   onChange={this.handleChange}
                   value={this.state.password}
@@ -83,15 +83,13 @@ class FormSignup extends Component {
                   id="password"
                   name="password"
                 />
-                </div>
-            <button type="submit"
-  className="btn-sbm"
-  >
-              Let's go in
-            </button>
-        </form>
-      </div>
-      </div>
+              </div>
+              <button type="submit" className="btn-sbm">
+                Let's go in
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
