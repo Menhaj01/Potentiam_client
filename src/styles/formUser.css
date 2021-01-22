@@ -3,6 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  margin-bottom: 50px;
 }
 
 .first-container {
@@ -22,8 +23,10 @@
   border-radius: 40px;
   text-align: center;
   padding: 15px;
-  background: linear-gradient(90deg, #bba9a9, #af8dca);
-  box-shadow: white 10px 2px 10px;
+  /* background: linear-gradient(90deg, #bba9a9, #af8dca); */
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
+  /* box-shadow: white 10px 2px 10px; */
+  box-shadow: #57049b 10px 2px 10px;
   color: white;
   line-height: 25px;
 }
@@ -45,8 +48,10 @@
   border-radius: 40px;
   width: 15vw;
   color: white;
-  box-shadow: white 10px 2px 10px;
-  background: linear-gradient(90deg, #bba9a9, #af8dca);
+  /* box-shadow: white 10px 2px 10px; */
+  /* background: linear-gradient(90deg, #bba9a9, #af8dca); */
+  box-shadow: #57049b 10px 2px 10px;
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,10 +80,12 @@
   font-weight: bold;
   line-height: 45px;
   /* text-transform: uppercase; */
-  background: linear-gradient(90deg, #b9b0b0, #af8dca);
+  /* background: linear-gradient(90deg, #b9b0b0, #af8dca); */
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
   padding: 15px;
   font-size: 25px;
   color: white;
+  box-shadow: #57049b 10px 2px 10px;
 }
 .second-container textarea {
   border: 1px;
@@ -88,6 +95,9 @@
   height: 70px;
   margin-bottom: 10px;
   color: black;
+}
+.second-container label {
+  text-transform: uppercase;
 }
 .form-image-container {
   display: flex;
@@ -99,11 +109,16 @@
   /* text-transform: uppercase; */
   color: white;
   font-size: 25px;
-  background: linear-gradient(90deg, #b9b0b0, #af8dca);
+  /* background: linear-gradient(90deg, #b9b0b0, #af8dca); */
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
+  box-shadow: #57049b 10px 2px 10px;
 }
 .form-image-container input {
   padding-left: 30px;
 }
+/* .form-image-container label {
+  text-transform: uppercase;
+} */
 .social-container-form {
   display: flex;
   border: 1px;
@@ -114,11 +129,15 @@
   padding-bottom: 15px;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #b9b0b0, #af8dca);
+  /*  background: linear-gradient(90deg, #b9b0b0, #af8dca); */
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
+  box-shadow: #57049b 10px 2px 10px;
 }
 .social-container-form input {
   border-bottom: 1px solid;
   padding: 0 0.5rem;
+  background-color: rgba(36, 80, 173, 0);
+  outline: none;
 }
 
 .youtube {

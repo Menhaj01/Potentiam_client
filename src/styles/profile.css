@@ -8,6 +8,10 @@
   align-items: center;
   flex-direction: row-reverse;
   margin-top: 50px;
+  background: linear-gradient(90deg, #8247c8, #b259cf);
+  border-radius: 50px;
+  height: 100%;
+  overflow: hidden;
 }
 .food-img img {
   height: 100px;
@@ -17,34 +21,35 @@
 .food-img {
   margin-left: 50px;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 .title h1 {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 70px;
   margin-left: 30px;
-  color: #6944ff;
+  color: white;
 }
 .title span {
   font-weight: bold;
   font-size: 1.3rem;
-  border: 1px solid #6944ff;
-  padding: 3px;
+  border: 1px solid white;
+  padding: 10px;
   margin-left: 40px;
   margin-bottom: 30px;
-  color: #6944ff;
+  color: white;
   border-radius: 50px;
 }
 .title {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 .main-container {
   display: flex;
   height: 70vh;
   justify-content: space-between;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .Card {
@@ -55,13 +60,13 @@
   text-align: center;
   line-height: 30px;
   color: black;
-  border: 1px solid;
+
   padding: 15px;
   animation: animated-border 1.5s infinite;
 }
 @keyframes animated-border {
   0% {
-    box-shadow: 0 0 0 0 #6944ff;
+    box-shadow: 0 0 0 0 #000000;
   }
   100% {
     box-shadow: 0 0 0 40px rgba(255, 255, 255, 0);
@@ -133,10 +138,20 @@
   color: #324e63;
 }
 
+.left-conatainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-container {
+  display: flex;
+}
+
 /* SOCIAL STUFF */
 .social-container {
   background: #eee;
   padding: 25px 50px;
+  border-radius: 20px;
 }
 .social-container h3 {
   font-weight: 700;

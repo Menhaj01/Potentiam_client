@@ -60,7 +60,7 @@ class CategoryPage extends React.Component {
       <div className="category-style">
         <div className="img--header-category">
           <h1>Improve your {this.props.location.data.name}</h1>
-          <SearchBar searchResult={this.handleSearchResult} />
+          {/* <SearchBar searchResult={this.handleSearchResult} /> */}
         </div>
 
         <div className="btn-style">

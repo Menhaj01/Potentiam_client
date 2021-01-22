@@ -44,12 +44,13 @@ a.socials:hover {
 }
 
 .sideBar {
-  height: 95vh;
+  height: 100%;
   width: 5vw;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgba(27, 27, 27, 0.733);
+  /* background-color: rgba(27, 27, 27, 0.733); */
+  background: linear-gradient(90deg, #dfafaf, #b36eec);
   border-radius: 30px 30px 0 30px;
   position: absolute;
   top: 0;
@@ -60,7 +61,8 @@ a.socials:hover {
 .sideBar-ul {
   padding: 10px;
   border-radius: 30px 0 0 30px;
-  background-color: rgb(189, 176, 180);
+  /* background-color: rgb(189, 176, 180); */
+  background-color: #f8d4d4;
   color: rgb(60, 58, 61);
   font-weight: bold;
   font-size: 20px;
@@ -72,14 +74,15 @@ a.socials:hover {
 
 .dashboard-content {
   width: 100vw;
-  height: 95vh;
+  height: 100%;
   border-radius: 30px;
   background-color: cadetblue;
   display: grid;
   grid-template-columns: 2.5fr 0.8fr 1.5fr;
   grid-gap: 10px;
-  background: linear-gradient(90deg, #beb3b3, #af8dca);
+  /* background: linear-gradient(90deg, #beb3b3, #af8dca); */
   /* z-index: 2; */
+  background: linear-gradient(90deg, #f8d4d4, #d29dfd);
 }
 
 /* **********SECTION 1********** */
@@ -113,13 +116,14 @@ a.socials:hover {
 
 .top-popularUsers {
   width: 100%;
-  height: 12rem;
+  height: 10rem;
   margin: 1rem 0;
 }
 .top-popularUsers img {
   width: 100%;
   height: 100%;
   border-radius: 3rem;
+  cursor: pointer;
 }
 .popularUser-socialLinks {
   display: flex;
@@ -140,7 +144,8 @@ a.socials:hover {
   flex-direction: column;
   align-items: center;
   border-radius: 30px 30px 30px 0;
-  background-color: rgba(27, 27, 27, 0.733);
+  /* background-color: rgba(27, 27, 27, 0.733); */
+  background: linear-gradient(90deg, #b36eec, #d8b6b6);
 }
 
 .sect-three-mainImg {
@@ -153,6 +158,7 @@ a.socials:hover {
   border-radius: 50px;
   width: 100%;
   height: 100%;
+  box-shadow: rgb(89, 0, 148) 10px 5px 15px;
 }
 
 .following-container {
@@ -186,14 +192,24 @@ a.socials:hover {
   font-weight: bold;
 }
 .myFollowing-addBtn {
-  background-color: #83c7c7;
+  background-color: #955ac5;
   padding: 10px 30px;
-  border-radius: 5px;
+  border-radius: 40px;
+  color: white;
 }
 .myFollowing-rmvBtn {
-  background-color: #d16363;
+  background-color: #fa5656;
   padding: 10px 30px;
-  border-radius: 5px;
+  border-radius: 40px;
+  color: white;
+}
+.myFollowing-addBtn:hover {
+  background-color: #931ff1;
+  box-shadow: white 5px 3px 5px;
+}
+.myFollowing-rmvBtn:hover {
+  background-color: #f71313;
+  box-shadow: white 5px 3px 5px;
 }
 
 .noFollowing {

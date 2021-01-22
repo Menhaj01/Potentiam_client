@@ -33,8 +33,8 @@ class DashboardResume extends React.Component {
     apiHandler.getTrends().then((apiResponse) => {
       this.setState({
         trends: apiResponse,
-      })
-    })
+      });
+    });
     const currentUser = this.props.context.user;
     // console.log(user);
     currentUser.following.map((follow) => {
@@ -101,14 +101,17 @@ class DashboardResume extends React.Component {
           <div className="dashboard-sect-two sect-commun">
             <div className="popularUser-container">
               <div className="popularUser-filtered">
-                <h2>Top posts</h2>
+                <h2>Top followers</h2>
                 {this.state.trends.map((user) => {
-                  return (<div className="top-popularUsers">
-                  <img onClick={() => this.handleClickProfile(user._id)}
-                    src={user.image}
-                    alt=""
-                  />
-                </div> )
+                  return (
+                    <div className="top-popularUsers">
+                      <img
+                        onClick={() => this.handleClickProfile(user._id)}
+                        src={user.image}
+                        alt=""
+                      />
+                    </div>
+                  );
                 })}
               </div>
               <div className="popularUser-socialLinks">

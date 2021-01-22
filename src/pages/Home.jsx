@@ -22,8 +22,15 @@ class Home extends React.Component {
     });
   };
 
-  componentDidMount() {
+  /* componentDidMount() {
     axios.get(`http://localhost:4000/api/category/all`).then((response) => {
+      this.setState({
+        categories: response.data,
+      });
+    });
+  } */
+  componentDidMount() {
+    apiHandler.getCategories().then((response) => {
       this.setState({
         categories: response.data,
       });

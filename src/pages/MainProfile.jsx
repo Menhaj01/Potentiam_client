@@ -16,8 +16,8 @@ class MainProfile extends React.Component {
     const userConnected = this.props.context.user;
 
     apiHandler.getOneUser(this.props.match.params.id).then((data) => {
-      const usersFromDash = {}
-      
+      const usersFromDash = {};
+
       data.followingToShow.forEach((user) => {
         if (!usersFromDash[user.id_category.name]) {
           usersFromDash[user.id_category.name] = [];
@@ -29,7 +29,7 @@ class MainProfile extends React.Component {
 
       this.setState({
         userToDisplay: data,
-        usersFromDash: usersFromDash
+        usersFromDash: usersFromDash,
       });
     });
 
@@ -66,8 +66,8 @@ class MainProfile extends React.Component {
       this.setState({
         userToDisplay: apiResponse,
         usersFromDash: apiResponse.followingToShow,
-      })
-    })
+      });
+    });
   };
 
   handleCategory = (id) => {
@@ -95,25 +95,34 @@ class MainProfile extends React.Component {
             <h1>User(s) recommended by {this.state.userToDisplay.pseudo}</h1>
             {Object.keys(this.state.usersFromDash).map((categoryName) => {
               return (
-                <div>
-                  <span onClick={() => this.handleCategory(this.state.usersFromDash[categoryName][0].id_category._id)}>{categoryName}</span>
-
+                <div className="left-container">
+                  <span
+                    className="container-category"
+                    onClick={() =>
+                      this.handleCategory(
+                        this.state.usersFromDash[categoryName][0].id_category
+                          ._id
+                      )
+                    }
+                  >
+                    {categoryName}
+                  </span>
 
                   {this.state.usersFromDash[categoryName].map((user) => {
-                  return (
-                    <div key={user._id} className="suggestion-container">
-                      
-                      <div className="food-img">
-                        <img onClick={() => this.handleClick(user)} src={user.image} alt="" />
+                    return (
+                      <div key={user._id} className="suggestion-container">
+                        <div className="food-img">
+                          <img
+                            onClick={() => this.handleClick(user)}
+                            src={user.image}
+                            alt=""
+                          />
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
                 </div>
-
-                
               );
-             
             })}
           </div>
         </div>
